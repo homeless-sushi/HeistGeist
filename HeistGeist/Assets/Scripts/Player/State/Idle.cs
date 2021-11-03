@@ -2,24 +2,21 @@
 
 namespace Player.State
 {
-    public class WalkState : IState
+    public class Idle : IState
     {
-        private float velocity = 10f;
-
         public void OnEnter(PlayerController playerController)
         {
-            //PlayerController.Animator.SetTrigger("walking");
+            //PlayerController.Animator.SetTrigger("idling");
         }
 
         public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
         {
-            if (inputWrapper.direction == Vector2.zero)
-                return new IdleState();
-
             if (inputWrapper.crouch)
-                return new SlideState();
-
-            playerController.Move(inputWrapper.direction, velocity);
+                return new Crouch();
+            
+            if (inputWrapper.direction != Vector2.zero)
+                return new Walk();
+            
             return null;
         }
 

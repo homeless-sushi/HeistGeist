@@ -2,7 +2,7 @@
 
 namespace Player.State
 {
-        public class SlideState : IState
+        public class Slide : IState
         {
             //TODO: Use the real formula for sliding deceleration
             //slide initial params
@@ -15,7 +15,7 @@ namespace Player.State
             private float _transitionOutTimeLeft; //how long until transitioning to crouch
             private float _speed; //curr velocity
 
-            public SlideState()
+            public Slide()
             {
                 _frictionDeceleration = InitialVelocity / SlideDuration;
             }
@@ -33,11 +33,11 @@ namespace Player.State
                 if (!inputWrapper.crouch)
                     if (inputWrapper.direction == Vector2.zero)
                     {
-                        return new IdleState();
+                        return new Idle();
                     }
                     else
                     {
-                        return new WalkState();
+                        return new Walk();
                     }
                 
                 playerController.Move(inputWrapper.direction, _speed);
@@ -48,7 +48,7 @@ namespace Player.State
                 {
                     _transitionOutTimeLeft -= Time.fixedDeltaTime;
                 }
-                return (_transitionOutTimeLeft > 0) ? null : new CrouchState();
+                return (_transitionOutTimeLeft > 0) ? null : new Crouch();
             }
 
             public void OnExit(PlayerController playerController){ }

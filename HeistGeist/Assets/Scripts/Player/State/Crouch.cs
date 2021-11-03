@@ -2,7 +2,7 @@
 
 namespace Player.State
 {
-    public class CrouchState : IState
+    public class Crouch : IState
     {
         private const float Velocity = 3f;
         
@@ -16,11 +16,11 @@ namespace Player.State
             if (!inputWrapper.crouch)
                 if (inputWrapper.direction == Vector2.zero)
                 {
-                    return new IdleState();
+                    return new Idle();
                 }
                 else
                 {
-                    return new WalkState();
+                    return new Walk();
                 }
             
             playerController.Move(inputWrapper.direction, Velocity);

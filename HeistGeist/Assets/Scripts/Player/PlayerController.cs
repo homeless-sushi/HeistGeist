@@ -25,7 +25,7 @@ namespace Player
 
             //Animator = GetComponent<Animator>();
 
-            State = new State.IdleState();
+            State = new State.Idle();
             State.OnEnter(this);
 
             _inputReader = new PlayerInput();
