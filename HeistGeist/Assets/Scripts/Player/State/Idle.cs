@@ -10,12 +10,12 @@ namespace Player.State
             playerController.Move(Vector2.zero);
         }
 
-        public IState Update(PlayerController playerController, InputWrapper inputWrapper)
+        public IState Update(PlayerController playerController)
         {
-            if (inputWrapper.crouch)
+            if (playerController.PlayerInput.Crouch)
                 return PlayerController.CrouchState;
             
-            if (inputWrapper.direction != Vector2.zero)
+            if (playerController.PlayerInput.Direction != Vector2.zero)
                 return PlayerController.WalkState;
             
             return null;

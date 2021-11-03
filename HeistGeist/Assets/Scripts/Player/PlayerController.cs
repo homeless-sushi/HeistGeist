@@ -25,12 +25,8 @@ namespace Player
             }
         }
 
-        //A class for reading input
-        private PlayerInput _inputReader;
-        public UnityEvent InteractEvent => _inputReader.InteractListeners;
-
-        //A wrapper for storing the frame input
-        private InputWrapper _frameInput;
+        public PlayerInput PlayerInput { get; private set; }
+        public UnityEvent InteractEvent { get; private set; }
 
         private void Awake()
         {
@@ -40,17 +36,18 @@ namespace Player
             _state = IdleState;
             _state.OnEnter(this);
 
-            _inputReader = new PlayerInput();
+            PlayerInput = new PlayerInput();
+            InteractEvent = new UnityEvent();
         }
 
         private void Update()
         {
-            _frameInput = _inputReader.GetInput();
-            
-            var newState = State.Update(this, _frameInput);
+            var newState = State.Update(this);
             if (newState != null)
                 State = newState;
 
+            if(PlayerInput.Interact)
+                InteractEvent.Invoke();
             //Animator.SetFloat("moveX", _frameInput.direction.x);
             //Animator.SetFloat("moveY", _frameInput.direction.y);
         }

@@ -4,22 +4,22 @@ namespace Player.State
 {
     public class Walk : IState
     {
-        private const float Velocity = 10f;
+        private const float Speed = 10f;
 
         public void OnEnter(PlayerController playerController)
         {
             //PlayerController.Animator.SetTrigger("walking");
         }
 
-        public IState Update(PlayerController playerController, InputWrapper inputWrapper)
+        public IState Update(PlayerController playerController)
         {
-            if (inputWrapper.direction == Vector2.zero)
+            if (playerController.PlayerInput.Direction == Vector2.zero)
                 return PlayerController.IdleState;
 
-            if (inputWrapper.crouch)
+            if (playerController.PlayerInput.Crouch)
                 return PlayerController.SlideState;
 
-            playerController.Move(inputWrapper.direction * Velocity);
+            playerController.Move(playerController.PlayerInput.Direction * Speed);
             return null;
         }
 

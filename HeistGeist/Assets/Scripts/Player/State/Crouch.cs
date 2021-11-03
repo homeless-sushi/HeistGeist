@@ -4,17 +4,17 @@ namespace Player.State
 {
     public class Crouch : IState
     {
-        private const float Velocity = 3f;
+        private const float Speed = 3f;
         
         public void OnEnter(PlayerController playerController)
         {
             //PlayerController.Animator.SetTrigger("crouching");
         }
         
-        public IState Update(PlayerController playerController, InputWrapper inputWrapper)
+        public IState Update(PlayerController playerController)
         {
-            if (!inputWrapper.crouch)
-                if (inputWrapper.direction == Vector2.zero)
+            if (!playerController.PlayerInput.Crouch)
+                if (playerController.PlayerInput.Direction == Vector2.zero)
                 {
                     return PlayerController.CrouchState;
                 }
@@ -23,7 +23,7 @@ namespace Player.State
                     return PlayerController.WalkState;
                 }
             
-            playerController.Move(inputWrapper.direction * Velocity);
+            playerController.Move(playerController.PlayerInput.Direction * Speed);
             return null;
         }
 

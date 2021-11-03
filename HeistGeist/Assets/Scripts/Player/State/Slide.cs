@@ -6,11 +6,11 @@ namespace Player.State
         {
             //TODO: Use the real formula for sliding deceleration
             //slide initial params
-            private const float InitialVelocity = 15f;  //initial velocity of the slide
+            private const float InitialSpeed = 15f;  //initial velocity of the slide
             private const float SlideDuration = .4f; //how long should the slide last
             private const float TransitionOutTime = .3f; //how long should the player stay still before crouching
             //slide inferred params
-            private const float FrictionDeceleration = InitialVelocity / SlideDuration;
+            private const float FrictionDeceleration = InitialSpeed / SlideDuration;
             //slide variables
             private float _transitionOutTimeLeft; //how long until transitioning to crouch
             private float _speed; //curr velocity
@@ -18,14 +18,14 @@ namespace Player.State
             public void OnEnter(PlayerController playerController)
             {
                 //PlayerController.Animator.SetTrigger("sliding");
-                _speed = InitialVelocity;
+                _speed = InitialSpeed;
                 _transitionOutTimeLeft = TransitionOutTime;
             }
 
-            public IState Update(PlayerController playerController, InputWrapper inputWrapper)
+            public IState Update(PlayerController playerController)
             {
-                if (!inputWrapper.crouch)
-                    if (inputWrapper.direction == Vector2.zero)
+                if (!playerController.PlayerInput.Crouch)
+                    if (playerController.PlayerInput.Direction == Vector2.zero)
                     {
                         return PlayerController.IdleState;
                     }
@@ -34,7 +34,7 @@ namespace Player.State
                         return PlayerController.WalkState;
                     }
                 
-                playerController.Move(inputWrapper.direction * _speed);
+                playerController.Move(playerController.PlayerInput.Direction * _speed);
                 _speed -= FrictionDeceleration * Time.deltaTime;
                 _speed = Mathf.Max(0, _speed);
                 
