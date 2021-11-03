@@ -47,7 +47,7 @@ namespace Player
         {
             _frameInput = _inputReader.GetInput();
             
-            var newState = State.HandleInput(this, _frameInput);
+            var newState = State.Update(this, _frameInput);
             if (newState != null)
                 State = newState;
 

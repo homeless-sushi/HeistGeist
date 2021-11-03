@@ -11,7 +11,7 @@ namespace Player.State
             //PlayerController.Animator.SetTrigger("crouching");
         }
         
-        public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
+        public IState Update(PlayerController playerController, InputWrapper inputWrapper)
         {
             if (!inputWrapper.crouch)
                 if (inputWrapper.direction == Vector2.zero)

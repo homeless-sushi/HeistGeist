@@ -5,8 +5,7 @@ namespace Player.State
     public interface IState
     {
         public void OnEnter(PlayerController playerController);
-        [CanBeNull] public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper);
-        //[CanBeNull] public PlayerState Update();
+        [CanBeNull] public IState Update(PlayerController playerController, InputWrapper inputWrapper);
         public void OnExit(PlayerController playerController);
     }
 }

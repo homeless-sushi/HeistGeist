@@ -22,7 +22,7 @@ namespace Player.State
                 _transitionOutTimeLeft = TransitionOutTime;
             }
 
-            public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
+            public IState Update(PlayerController playerController, InputWrapper inputWrapper)
             {
                 if (!inputWrapper.crouch)
                     if (inputWrapper.direction == Vector2.zero)

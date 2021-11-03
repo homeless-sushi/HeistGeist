@@ -11,7 +11,7 @@ namespace Player.State
             //PlayerController.Animator.SetTrigger("walking");
         }
 
-        public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
+        public IState Update(PlayerController playerController, InputWrapper inputWrapper)
         {
             if (inputWrapper.direction == Vector2.zero)
                 return PlayerController.IdleState;

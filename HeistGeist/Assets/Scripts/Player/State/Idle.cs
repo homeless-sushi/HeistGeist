@@ -10,7 +10,7 @@ namespace Player.State
             playerController.Move(Vector2.zero);
         }
 
-        public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
+        public IState Update(PlayerController playerController, InputWrapper inputWrapper)
         {
             if (inputWrapper.crouch)
                 return PlayerController.CrouchState;
