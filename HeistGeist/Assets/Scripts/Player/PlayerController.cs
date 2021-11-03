@@ -6,12 +6,16 @@ namespace Player
     [RequireComponent(typeof(Animator))]
     public class PlayerController : MovingObject
     {
+        public static readonly State.IState IdleState = new State.Idle();
+        public static readonly State.IState WalkState = new State.Walk();
+        public static readonly State.IState SlideState = new State.Slide();
+        public static readonly State.IState CrouchState = new State.Crouch();
         //The player character's animator
         public Animator Animator { get; private set; }
 
         //The player character's state
         private State.IState _state;
-        public State.IState State {
+        private State.IState State {
             get => _state;
             set {
                 _state.OnExit(this);
@@ -33,7 +37,7 @@ namespace Player
 
             //Animator = GetComponent<Animator>();
 
-            _state = new State.Idle();
+            _state = IdleState;
             _state.OnEnter(this);
 
             _inputReader = new PlayerInput();

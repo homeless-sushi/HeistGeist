@@ -12,10 +12,10 @@ namespace Player.State
         public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
         {
             if (inputWrapper.crouch)
-                return new Crouch();
+                return PlayerController.CrouchState;
             
             if (inputWrapper.direction != Vector2.zero)
-                return new Walk();
+                return PlayerController.WalkState;
             
             return null;
         }

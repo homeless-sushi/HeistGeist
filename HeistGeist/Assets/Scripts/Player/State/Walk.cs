@@ -4,7 +4,7 @@ namespace Player.State
 {
     public class Walk : IState
     {
-        private float velocity = 10f;
+        private const float Velocity = 10f;
 
         public void OnEnter(PlayerController playerController)
         {
@@ -14,12 +14,12 @@ namespace Player.State
         public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
         {
             if (inputWrapper.direction == Vector2.zero)
-                return new Idle();
+                return PlayerController.IdleState;
 
             if (inputWrapper.crouch)
-                return new Slide();
+                return PlayerController.SlideState;
 
-            playerController.Move(inputWrapper.direction, velocity);
+            playerController.Move(inputWrapper.direction, Velocity);
             return null;
         }
 

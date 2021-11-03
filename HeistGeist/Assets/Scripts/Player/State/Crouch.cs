@@ -16,11 +16,11 @@ namespace Player.State
             if (!inputWrapper.crouch)
                 if (inputWrapper.direction == Vector2.zero)
                 {
-                    return new Idle();
+                    return PlayerController.CrouchState;
                 }
                 else
                 {
-                    return new Walk();
+                    return PlayerController.WalkState;
                 }
             
             playerController.Move(inputWrapper.direction, Velocity);

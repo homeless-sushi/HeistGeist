@@ -10,22 +10,16 @@ namespace Player.State
             private const float SlideDuration = .4f; //how long should the slide last
             private const float TransitionOutTime = .3f; //how long should the player stay still before crouching
             //slide inferred params
-            private readonly float _frictionDeceleration;
+            private const float FrictionDeceleration = InitialVelocity / SlideDuration;
             //slide variables
             private float _transitionOutTimeLeft; //how long until transitioning to crouch
             private float _speed; //curr velocity
-
-            public Slide()
-            {
-                _frictionDeceleration = InitialVelocity / SlideDuration;
-            }
 
             public void OnEnter(PlayerController playerController)
             {
                 //PlayerController.Animator.SetTrigger("sliding");
                 _speed = InitialVelocity;
                 _transitionOutTimeLeft = TransitionOutTime;
-
             }
 
             public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
@@ -33,22 +27,22 @@ namespace Player.State
                 if (!inputWrapper.crouch)
                     if (inputWrapper.direction == Vector2.zero)
                     {
-                        return new Idle();
+                        return PlayerController.IdleState;
                     }
                     else
                     {
-                        return new Walk();
+                        return PlayerController.WalkState;
                     }
                 
                 playerController.Move(inputWrapper.direction, _speed);
-                _speed -= _frictionDeceleration * Time.fixedDeltaTime;
+                _speed -= FrictionDeceleration * Time.fixedDeltaTime;
                 _speed = Mathf.Max(0, _speed);
                 
                 if (_speed == 0)
                 {
                     _transitionOutTimeLeft -= Time.fixedDeltaTime;
                 }
-                return (_transitionOutTimeLeft > 0) ? null : new Crouch();
+                return (_transitionOutTimeLeft > 0) ? null : PlayerController.CrouchState;
             }
 
             public void OnExit(PlayerController playerController){ }
