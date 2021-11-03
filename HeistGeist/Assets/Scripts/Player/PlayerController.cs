@@ -10,7 +10,15 @@ namespace Player
         public Animator Animator { get; private set; }
 
         //The player character's state
-        public State.IState State { get; private set; }
+        private State.IState _state;
+        public State.IState State {
+            get => _state;
+            set {
+                _state.OnExit(this);
+                _state = value;
+                _state.OnEnter(this);
+            }
+        }
 
         //A class for reading input
         private PlayerInput _inputReader;
@@ -25,8 +33,8 @@ namespace Player
 
             //Animator = GetComponent<Animator>();
 
-            State = new State.Idle();
-            State.OnEnter(this);
+            _state = new State.Idle();
+            _state.OnEnter(this);
 
             _inputReader = new PlayerInput();
         }
@@ -41,12 +49,9 @@ namespace Player
 
         private void FixedUpdate()
         {
-            State.IState newState =
-                State.HandleInput(this, _frameInput);
+            var newState = State.HandleInput(this, _frameInput);
             if (newState != null)
-            {
-                ChangeState(newState);
-            }
+                State = newState;
         }
 
         //protected override RaycastHit2D CanMove(Vector3 end)
@@ -56,12 +61,5 @@ namespace Player
         //protected override void OnCantMove(RaycastHit2D hit, Vector2 target)
         //{
         //}
-
-        private void ChangeState(State.IState newState)
-        {
-            State.OnExit(this);
-            State = newState;
-            State.OnEnter(this);
-        }
     }
 }
