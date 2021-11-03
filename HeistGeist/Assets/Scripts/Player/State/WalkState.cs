@@ -1,32 +1,28 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
-using Player;
+﻿using UnityEngine;
 
 namespace Player.State
 {
-    public class WalkState : PlayerState
+    public class WalkState : IState
     {
         private float velocity = 10f;
 
-        public WalkState(PlayerController playerController) : base(playerController){ }
-
-        public override void OnEnter()
+        public void OnEnter(PlayerController playerController)
         {
             //PlayerController.Animator.SetTrigger("walking");
         }
 
-        public override PlayerState HandleInput(InputWrapper inputWrapper)
+        public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
         {
             if (inputWrapper.direction == Vector2.zero)
-                return new IdleState(PlayerController);
+                return new IdleState();
 
             if (inputWrapper.crouch)
-                return new SlideState(PlayerController);
+                return new SlideState();
 
-            PlayerController.Move(inputWrapper.direction, velocity);
+            playerController.Move(inputWrapper.direction, velocity);
             return null;
         }
 
-        public override void OnExit() { }
+        public void OnExit(PlayerController playerController) { }
     }
 }

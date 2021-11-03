@@ -1,35 +1,32 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Player.State
 {
-    public class CrouchState : PlayerState
+    public class CrouchState : IState
     {
         private const float Velocity = 3f;
-
-        public CrouchState(PlayerController playerController) : base(playerController){ }
-
-        public override void OnEnter()
+        
+        public void OnEnter(PlayerController playerController)
         {
             //PlayerController.Animator.SetTrigger("crouching");
         }
         
-        public override PlayerState HandleInput(InputWrapper inputWrapper)
+        public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
         {
             if (!inputWrapper.crouch)
                 if (inputWrapper.direction == Vector2.zero)
                 {
-                    return new IdleState(PlayerController);
+                    return new IdleState();
                 }
                 else
                 {
-                    return new WalkState(PlayerController);
+                    return new WalkState();
                 }
             
-            PlayerController.Move(inputWrapper.direction, Velocity);
+            playerController.Move(inputWrapper.direction, Velocity);
             return null;
         }
 
-        public override void OnExit() { }
+        public void OnExit(PlayerController playerController) { }
     }
 }

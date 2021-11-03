@@ -1,8 +1,5 @@
-﻿using Player.State;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
 
 namespace Player
 {
@@ -13,7 +10,7 @@ namespace Player
         public Animator Animator { get; private set; }
 
         //The player character's state
-        public PlayerState State { get; private set; }
+        public State.IState State { get; private set; }
 
         //A class for reading input
         private PlayerInput _inputReader;
@@ -28,8 +25,8 @@ namespace Player
 
             //Animator = GetComponent<Animator>();
 
-            State = new IdleState(this);
-            State.OnEnter();
+            State = new State.IdleState();
+            State.OnEnter(this);
 
             _inputReader = new PlayerInput();
         }
@@ -44,8 +41,8 @@ namespace Player
 
         private void FixedUpdate()
         {
-            PlayerState newState =
-                State.HandleInput(_frameInput);
+            State.IState newState =
+                State.HandleInput(this, _frameInput);
             if (newState != null)
             {
                 ChangeState(newState);
@@ -60,11 +57,11 @@ namespace Player
         //{
         //}
 
-        private void ChangeState(PlayerState newState)
+        private void ChangeState(State.IState newState)
         {
-            State.OnExit();
+            State.OnExit(this);
             State = newState;
-            State.OnEnter();
+            State.OnEnter(this);
         }
     }
 }

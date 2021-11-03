@@ -2,26 +2,24 @@
 
 namespace Player.State
 {
-    public class IdleState : PlayerState
+    public class IdleState : IState
     {
-        public IdleState(PlayerController playerController) : base(playerController){ }
-
-        public override void OnEnter()
+        public void OnEnter(PlayerController playerController)
         {
             //PlayerController.Animator.SetTrigger("idling");
         }
 
-        public override PlayerState HandleInput(InputWrapper inputWrapper)
+        public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)
         {
             if (inputWrapper.crouch)
-                return new CrouchState(PlayerController);
+                return new CrouchState();
             
             if (inputWrapper.direction != Vector2.zero)
-                return new WalkState(PlayerController);
+                return new WalkState();
             
             return null;
         }
 
-        public override void OnExit() { }
+        public void OnExit(PlayerController playerController) { }
     }
 }
