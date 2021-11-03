@@ -34,13 +34,13 @@ namespace Player.State
                         return PlayerController.WalkState;
                     }
                 
-                playerController.Move(inputWrapper.direction, _speed);
-                _speed -= FrictionDeceleration * Time.fixedDeltaTime;
+                playerController.Move(inputWrapper.direction * _speed);
+                _speed -= FrictionDeceleration * Time.deltaTime;
                 _speed = Mathf.Max(0, _speed);
                 
                 if (_speed == 0)
                 {
-                    _transitionOutTimeLeft -= Time.fixedDeltaTime;
+                    _transitionOutTimeLeft -= Time.deltaTime;
                 }
                 return (_transitionOutTimeLeft > 0) ? null : PlayerController.CrouchState;
             }

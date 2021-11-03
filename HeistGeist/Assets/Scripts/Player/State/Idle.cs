@@ -7,6 +7,7 @@ namespace Player.State
         public void OnEnter(PlayerController playerController)
         {
             //PlayerController.Animator.SetTrigger("idling");
+            playerController.Move(Vector2.zero);
         }
 
         public IState HandleInput(PlayerController playerController, InputWrapper inputWrapper)

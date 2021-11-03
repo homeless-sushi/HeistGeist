@@ -4,16 +4,17 @@ using UnityEngine.Events;
 namespace Player
 {
     [RequireComponent(typeof(Animator))]
-    public class PlayerController : MovingObject
+    [RequireComponent(typeof(MovingObject))]
+    public class PlayerController : MonoBehaviour
     {
         public static readonly State.IState IdleState = new State.Idle();
         public static readonly State.IState WalkState = new State.Walk();
         public static readonly State.IState SlideState = new State.Slide();
         public static readonly State.IState CrouchState = new State.Crouch();
-        //The player character's animator
+        
         public Animator Animator { get; private set; }
-
-        //The player character's state
+        private MovingObject _movingObject;
+        
         private State.IState _state;
         private State.IState State {
             get => _state;
@@ -31,11 +32,10 @@ namespace Player
         //A wrapper for storing the frame input
         private InputWrapper _frameInput;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
-
             //Animator = GetComponent<Animator>();
+            _movingObject = GetComponent<MovingObject>();
 
             _state = IdleState;
             _state.OnEnter(this);
@@ -46,24 +46,18 @@ namespace Player
         private void Update()
         {
             _frameInput = _inputReader.GetInput();
+            
+            var newState = State.HandleInput(this, _frameInput);
+            if (newState != null)
+                State = newState;
 
             //Animator.SetFloat("moveX", _frameInput.direction.x);
             //Animator.SetFloat("moveY", _frameInput.direction.y);
         }
 
-        private void FixedUpdate()
+        public void Move(Vector2 velocity)
         {
-            var newState = State.HandleInput(this, _frameInput);
-            if (newState != null)
-                State = newState;
+            _movingObject.velocity = velocity;
         }
-
-        //protected override RaycastHit2D CanMove(Vector3 end)
-        //   return new RaycastHit2D();
-        //}
-
-        //protected override void OnCantMove(RaycastHit2D hit, Vector2 target)
-        //{
-        //}
     }
 }

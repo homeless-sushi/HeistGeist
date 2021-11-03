@@ -23,7 +23,7 @@ namespace Player.State
                     return PlayerController.WalkState;
                 }
             
-            playerController.Move(inputWrapper.direction, Velocity);
+            playerController.Move(inputWrapper.direction * Velocity);
             return null;
         }
 

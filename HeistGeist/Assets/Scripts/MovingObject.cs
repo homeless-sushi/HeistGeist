@@ -1,29 +1,19 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class MovingObject : MonoBehaviour
+public class MovingObject : MonoBehaviour
 {
-    public Rigidbody2D Rigidbody { get; private set; }
-    
-    protected virtual void Awake()
+    private Rigidbody2D _rigidbody;
+    public Vector2 velocity = Vector2.zero;
+
+    private void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    public void Move(Vector2 dirVector, float velocity)
+    private void FixedUpdate()
     {
-        Vector2 target = (Vector2)transform.position + velocity*Time.fixedDeltaTime*dirVector.normalized;
-        //RaycastHit2D hit = CanMove(target);
-        // if (CanMove(target).transform == null)
-        //{
-            Rigidbody.MovePosition(target);
-            return;
-        //}
-
-        //OnCantMove(hit, target);
+        var target = _rigidbody.position + velocity * Time.fixedDeltaTime;
+        _rigidbody.MovePosition(target);
     }
-
-    //protected abstract RaycastHit2D CanMove(Vector3 end);
-
-    //protected abstract void OnCantMove(RaycastHit2D hit, Vector2 target);
 }

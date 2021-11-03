@@ -19,7 +19,7 @@ namespace Player.State
             if (inputWrapper.crouch)
                 return PlayerController.SlideState;
 
-            playerController.Move(inputWrapper.direction, Velocity);
+            playerController.Move(inputWrapper.direction * Velocity);
             return null;
         }
 
