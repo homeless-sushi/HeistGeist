@@ -8,7 +8,7 @@ namespace Player.State
 
         public void OnEnter(PlayerController playerController)
         {
-            //PlayerController.Animator.SetTrigger("walking");
+            playerController.Animator.SetTrigger("Walk_trig");
         }
 
         public IState Update(PlayerController playerController)

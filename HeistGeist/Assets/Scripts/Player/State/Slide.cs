@@ -17,7 +17,7 @@ namespace Player.State
 
             public void OnEnter(PlayerController playerController)
             {
-                //PlayerController.Animator.SetTrigger("sliding");
+                playerController.Animator.SetTrigger("Slide_trig");
                 _speed = InitialSpeed;
                 _transitionOutTimeLeft = TransitionOutTime;
             }

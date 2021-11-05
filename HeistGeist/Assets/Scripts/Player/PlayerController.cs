@@ -30,7 +30,7 @@ namespace Player
 
         private void Awake()
         {
-            //Animator = GetComponent<Animator>();
+            Animator = GetComponent<Animator>();
             _movingObject = GetComponent<MovingObject>();
 
             _state = IdleState;
@@ -48,8 +48,12 @@ namespace Player
 
             if(PlayerInput.Interact)
                 InteractEvent.Invoke();
-            //Animator.SetFloat("moveX", _frameInput.direction.x);
-            //Animator.SetFloat("moveY", _frameInput.direction.y);
+
+            if (PlayerInput.Direction != Vector2.zero)
+            {
+                Animator.SetFloat("MoveX_f", PlayerInput.Direction.x);
+                Animator.SetFloat("MoveY_f", PlayerInput.Direction.y);
+            }
         }
 
         public void Move(Vector2 velocity)

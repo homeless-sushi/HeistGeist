@@ -6,7 +6,7 @@ namespace Player.State
     {
         public void OnEnter(PlayerController playerController)
         {
-            //PlayerController.Animator.SetTrigger("idling");
+            playerController.Animator.SetTrigger("Idle_trig");
             playerController.Move(Vector2.zero);
         }
 

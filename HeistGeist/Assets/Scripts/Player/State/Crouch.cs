@@ -8,7 +8,7 @@ namespace Player.State
         
         public void OnEnter(PlayerController playerController)
         {
-            //PlayerController.Animator.SetTrigger("crouching");
+            playerController.Animator.SetTrigger("Crouch_trig");
         }
         
         public IState Update(PlayerController playerController)
