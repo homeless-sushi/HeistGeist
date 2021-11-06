@@ -10,14 +10,13 @@ public class Keypad : MonoBehaviour
     void Start()
     {
         // TODO Insert right answer first
-        _rightAnswer = "";
+        _rightAnswer = "1234";
         _answer = "";
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(GetAnswer());
         
     }
 
@@ -26,9 +25,19 @@ public class Keypad : MonoBehaviour
         _rightAnswer = answer;
     }
     
-    public bool CheckAnswer()
+    public void CheckAnswerAndDoAction()
     {
-        return _rightAnswer==_answer;
+        if (_rightAnswer==_answer)
+        {
+            // TODO
+            print("Enter next puzzle");
+            
+        }
+        else
+        {
+            // TODO 
+            print("Wrong answer");
+        }
     }
     
     public void SetAnswer(string answer)
@@ -37,6 +46,8 @@ public class Keypad : MonoBehaviour
         {
             _answer += answer;
         }
+        
+        print(GetAnswer());
         
     }
     
