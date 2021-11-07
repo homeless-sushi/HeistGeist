@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using keypad.KeypadState;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ public class Keypad : MonoBehaviour
         {
             _keypadNumberButton.Add(new Number(i));
         }
+        
     }
 
     // Update is called once per frame
@@ -43,20 +45,6 @@ public class Keypad : MonoBehaviour
         _rightAnswer = answer;
     }
     
-    public void CheckAnswerAndDoAction()
-    {
-        if (_rightAnswer==_answer)
-        {
-            // TODO
-            print("Enter next puzzle");
-            
-        }
-        else
-        {
-            // TODO 
-            print("Wrong answer");
-        }
-    }
     
     public void SetAnswer(int answer)
     {
@@ -68,12 +56,49 @@ public class Keypad : MonoBehaviour
             number.ChangeState(new GreenState());
         }
 
+        if (_answer.Length >= 4)
+        {
+            CheckAnswerAndDoAction();
+        }
+
     }
     
+    public void CheckAnswerAndDoAction()
+    {
+        if (_rightAnswer==_answer)
+        {
+            //TODO
+            print("Right password, go to next puzzle");
 
-    private void CancelAnswer()
+        }
+        else
+        {
+            // TODO 
+            print("Wrong answer");
+            
+            
+            foreach (var i in Enumerable.Range(1, 9))
+            {
+                var number = _keypadNumberButton[i - 1];
+                number.ChangeState(new RedState());
+            }
+            
+            // CancelAnswer();
+            
+        }
+    }
+
+    public void CancelAnswer()
     {
         _answer = "";
+        foreach (var i in Enumerable.Range(1, 9))
+        {
+            var number = _keypadNumberButton[i - 1];
+            number.ChangeState(new NormalState());
+        }
+        
     }
+    
+    
     
 }
