@@ -6,6 +6,8 @@ namespace Manager
     {
         [SerializeField] private int maxStrikes;
         [SerializeField] private int currStrikes;
+
+        private Timer _timer;
         
         public void AddStrike()
         {
@@ -14,6 +16,12 @@ namespace Manager
             {
                 GameOver();
             }
+        }
+        
+        protected void Start()
+        {
+            _timer = GetComponent<Timer>();
+            _timer.expired.AddListener(GameOver);
         }
 
         public void RestartScene()
