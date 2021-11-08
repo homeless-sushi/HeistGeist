@@ -16,7 +16,7 @@ namespace Player.State
             if (!playerController.PlayerInput.Crouch)
                 if (playerController.PlayerInput.Direction == Vector2.zero)
                 {
-                    return PlayerController.CrouchState;
+                    return PlayerController.IdleState;
                 }
                 else
                 {
