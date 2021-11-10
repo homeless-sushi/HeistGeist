@@ -1,4 +1,5 @@
 using System;
+using keypad;
 using UnityEngine;
 
 public class Chest : MonoBehaviour
@@ -16,7 +17,16 @@ public class Chest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            keypad.SetActive(true);
+            if (!keypad.activeSelf)
+            {
+                keypad.SetActive(true);
+            }
+            else
+            {
+                keypad.GetComponent<Keypad>().CancelAnswer();
+                keypad.SetActive(false);
+            }
+
         }
     }
 }
