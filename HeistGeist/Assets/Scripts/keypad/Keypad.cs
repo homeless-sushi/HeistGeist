@@ -19,6 +19,7 @@ namespace keypad
             // TODO Insert right answer first
             _rightAnswer = "1234";
             _answer = "";
+            
             _keypadNumberButton = new List<Number>();
         
             foreach (var i in Enumerable.Range(0,10))
@@ -40,30 +41,31 @@ namespace keypad
         
         }
 
-        public void SetRightAnswer(string answer)
-        {
-            _rightAnswer = answer;
-        }
-    
-    
         public void SetAnswer(string answer)
         {
-            if (_answer.Length < 4)
-            {
-                _answer += answer;
-            }
+            
+            _answer += answer;
+           
         }
-    
+        
+        
+        // TODO Insert right password here
+        public void SetCode(int[] answer)
+        {
+            
+            _rightAnswer = answer.ToString();
+        }
+        
+        
         public void CheckAnswerAndDoAction()
         {
             if (_rightAnswer==_answer)
             {
-                //TODO
+                // TODO Trigger Here
                 print("Right password, go to next puzzle");
-            }
-            else
+                
+            }else
             {
-                // TODO 
                 print("Wrong answer");
             
                 foreach (var i in Enumerable.Range(0,10))
@@ -71,9 +73,6 @@ namespace keypad
                     var number = _keypadNumberButton[i];
                     number.ChangeState(new RedState());
                 }
-            
-                // CancelAnswer();
-            
             }
         }
 

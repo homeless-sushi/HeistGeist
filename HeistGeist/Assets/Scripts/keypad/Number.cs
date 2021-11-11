@@ -32,7 +32,6 @@ public class Number
 
     private void ChangePath()
     {
-        // _imagePath = "Assets/Keypad/" + _keyState.GetColor() + _imageNumber + ".png";
         _imagePath = "Keypad/" + _keyState.GetColor() + _imageNumber;
     }
     
