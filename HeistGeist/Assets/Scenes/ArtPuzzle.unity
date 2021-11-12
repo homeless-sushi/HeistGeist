@@ -178,6 +178,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7732873628097064836, guid: 368279512199c0c4699bc6f7cdb2e6fc, type: 3}
+      propertyPath: walkSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732873628097064836, guid: 368279512199c0c4699bc6f7cdb2e6fc, type: 3}
+      propertyPath: slideSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732873628097064836, guid: 368279512199c0c4699bc6f7cdb2e6fc, type: 3}
+      propertyPath: crouchSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 368279512199c0c4699bc6f7cdb2e6fc, type: 3}
 --- !u!1 &86913311

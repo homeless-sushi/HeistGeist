@@ -28,6 +28,11 @@ namespace Player
         public PlayerInput PlayerInput { get; private set; }
         public UnityEvent InteractEvent { get; private set; }
 
+        public float walkSpeed;
+        public float crouchSpeed;
+        public float slideSpeed;
+        public bool canSlide = true;
+        
         private void Awake()
         {
             Animator = GetComponent<Animator>();

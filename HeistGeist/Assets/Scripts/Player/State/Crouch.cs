@@ -4,7 +4,6 @@ namespace Player.State
 {
     public class Crouch : IState
     {
-        private const float Speed = 3f;
         
         public void OnEnter(PlayerController playerController)
         {
@@ -23,7 +22,7 @@ namespace Player.State
                     return PlayerController.WalkState;
                 }
             
-            playerController.Move(playerController.PlayerInput.Direction * Speed);
+            playerController.Move(playerController.PlayerInput.Direction * playerController.crouchSpeed);
             return null;
         }
 

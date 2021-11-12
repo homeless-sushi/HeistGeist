@@ -4,8 +4,6 @@ namespace Player.State
 {
     public class Walk : IState
     {
-        private const float Speed = 10f;
-
         public void OnEnter(PlayerController playerController)
         {
             playerController.Animator.SetTrigger("Walk_trig");
@@ -16,10 +14,10 @@ namespace Player.State
             if (playerController.PlayerInput.Direction == Vector2.zero)
                 return PlayerController.IdleState;
 
-            if (playerController.PlayerInput.Crouch)
+            if (playerController.PlayerInput.Crouch && playerController.canSlide)
                 return PlayerController.SlideState;
 
-            playerController.Move(playerController.PlayerInput.Direction * Speed);
+            playerController.Move(playerController.PlayerInput.Direction * playerController.walkSpeed);
             return null;
         }
 

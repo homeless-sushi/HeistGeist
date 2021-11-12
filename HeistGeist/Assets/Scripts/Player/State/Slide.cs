@@ -1,25 +1,24 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Player.State
 {
         public class Slide : IState
         {
-            //TODO: Use the real formula for sliding deceleration
-            //slide initial params
-            private const float InitialSpeed = 15f;  //initial velocity of the slide
             private const float SlideDuration = .4f; //how long should the slide last
             private const float TransitionOutTime = .3f; //how long should the player stay still before crouching
-            //slide inferred params
-            private const float FrictionDeceleration = InitialSpeed / SlideDuration;
-            //slide variables
+            private const float Timeout = 1f;
             private float _transitionOutTimeLeft; //how long until transitioning to crouch
-            private float _speed; //curr velocity
+            private float _speed;
+            private float _friction;
 
             public void OnEnter(PlayerController playerController)
             {
                 playerController.Animator.SetTrigger("Slide_trig");
-                _speed = InitialSpeed;
                 _transitionOutTimeLeft = TransitionOutTime;
+                _speed = playerController.slideSpeed;
+                _friction = _speed / SlideDuration;
+                playerController.canSlide = false;
             }
 
             public IState Update(PlayerController playerController)
@@ -33,11 +32,12 @@ namespace Player.State
                     {
                         return PlayerController.WalkState;
                     }
-                
-                playerController.Move(playerController.PlayerInput.Direction * _speed);
-                _speed -= FrictionDeceleration * Time.deltaTime;
-                _speed = Mathf.Max(0, _speed);
-                
+
+                if (_speed > 0)
+                {
+                    _speed = Mathf.Max(0, _speed - _friction * Time.deltaTime);
+                    playerController.Move(playerController.PlayerInput.Direction * _speed);
+                }
                 if (_speed == 0)
                 {
                     _transitionOutTimeLeft -= Time.deltaTime;
@@ -45,6 +45,15 @@ namespace Player.State
                 return (_transitionOutTimeLeft > 0) ? null : PlayerController.CrouchState;
             }
 
-            public void OnExit(PlayerController playerController){ }
+            public void OnExit(PlayerController playerController)
+            {
+                playerController.StartCoroutine(Example(playerController));
+            }
+
+            private static IEnumerator Example(PlayerController playerController)
+            {
+                yield return new WaitForSeconds(Timeout);
+                playerController.canSlide = true;
+            }
         }
 }
