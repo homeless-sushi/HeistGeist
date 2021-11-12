@@ -14,6 +14,6 @@ namespace Player
             Input.GetAxisRaw(_verticalAxis)
         ).normalized;
         public bool Crouch => Input.GetKey(_crouchKey);
-        public bool Interact => Input.GetKey(_interactKey);
+        public bool Interact => Input.GetKeyDown(_interactKey);
     }
 }
