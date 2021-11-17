@@ -1,4 +1,3 @@
-using keypad;
 using UnityEngine;
 
 public class Chest : MonoBehaviour
@@ -22,7 +21,7 @@ public class Chest : MonoBehaviour
             }
             else
             {
-                keypad.GetComponent<Keypad>().CancelAnswer();
+                keypad.GetComponent<Keypad.Keypad>().CancelAnswer();
                 keypad.SetActive(false);
             }
 

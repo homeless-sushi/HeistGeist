@@ -256,7 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &58502701
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &270391591
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,19 +541,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 270391594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1385730558}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: SetAnswer
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 8
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &270391594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,7 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &393867563
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &576239500
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,19 +935,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 576239503}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1385730558}
-        m_TargetAssemblyTypeName: Keypad, Assembly-CSharp
-        m_MethodName: SetAnswer
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 4
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &576239503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,7 +986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &790142702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &918088712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &925858917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &1146160080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,7 +1919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &1250835690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,7 +2054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f588f94ff2e0440dc919715ffed03dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keypad: {fileID: 1385730554}
+  keypadButtonData: {fileID: 0}
+  keypad: {fileID: 1385730558}
 --- !u!1 &1265531821
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,7 +2227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4dc5f9cc3504b54429ccf0d077555a01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b0f2d9c9698d2441ad505dcf05c940e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2271,6 +2257,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed963186de9f72458b9289b1941b285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberButtons:
+  - {fileID: 1198596663}
+  - {fileID: 527857838}
+  - {fileID: 1250835695}
+  - {fileID: 918088717}
+  - {fileID: 576239505}
+  - {fileID: 233929441}
+  - {fileID: 925858922}
+  - {fileID: 36531344}
+  - {fileID: 270391596}
+  - {fileID: 906112527}
 --- !u!1 &1449137925
 GameObject:
   m_ObjectHideFlags: 0
