@@ -1,3 +1,4 @@
+using Keypad;
 using Scenes.VaultArt.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,7 +16,7 @@ namespace Scenes.VaultArt
 
         [SerializeField] private PaintingFrame[] frames;
         [SerializeField] private int[] doorCode = new int[4];
-        [SerializeField] private Door door;
+        [SerializeField] private UIKeypad uiKeypad;
         
         [SerializeField] private Sprite[] numbersSprites;
 
@@ -46,7 +47,7 @@ namespace Scenes.VaultArt
             for (int i = 0; i < doorCode.Length; i++)
                 doorCode[i] = Random.Range(0, 10);
 
-            door.SetCode(doorCode);
+            uiKeypad.SetCode(doorCode);
                 
             //Choose a room
             PaintingFrameData[] chosenRoom = _allRooms[Random.Range(0,4)];
