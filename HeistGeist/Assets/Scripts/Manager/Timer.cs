@@ -15,8 +15,7 @@ namespace Manager
         {
             if (!isRunning)
                 return;
-        
-            secondsRemaining -= Time.deltaTime;
+            
             if (secondsRemaining > 0)
             {
                 secondsRemaining -= Time.deltaTime;
