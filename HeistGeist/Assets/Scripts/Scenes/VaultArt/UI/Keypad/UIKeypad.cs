@@ -16,6 +16,7 @@ namespace Keypad
         [SerializeField] private Button enterButton;
 
         [SerializeField] private UnityEvent correctAnswer;
+        [SerializeField] private UnityEvent wrongAnswer;
 
         public void InputNumber(int digit)
         {
@@ -41,7 +42,7 @@ namespace Keypad
             }
             else
             {
-                print("Wrong answer");
+                wrongAnswer.Invoke();
                 foreach (UINumberButton numberButton in numberButtons)
                 {
                     numberButton.SetRed();

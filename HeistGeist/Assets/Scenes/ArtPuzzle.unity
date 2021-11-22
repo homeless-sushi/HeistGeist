@@ -235,7 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9cec4f73a3fb44bb0a585ac3ab9282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   roomAPaintings:
   - {fileID: 11400000, guid: 46cc89652ffc96b408096c723e883d01, type: 2}
   - {fileID: 11400000, guid: cb7c191a7a3e5d34bb87f0366b6c88de, type: 2}
@@ -8074,6 +8073,21 @@ MonoBehaviour:
       - m_Target: {fileID: 557484334}
         m_TargetAssemblyTypeName: Scenes.VaultArt.Door, Assembly-CSharp
         m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  wrongAnswer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 49238101}
+        m_TargetAssemblyTypeName: Scenes.VaultArt.VaultArtController, Assembly-CSharp
+        m_MethodName: WrongAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

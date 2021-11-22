@@ -1,4 +1,5 @@
 using Keypad;
+using Manager;
 using Scenes.VaultArt.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -80,6 +81,11 @@ namespace Scenes.VaultArt
                 currentFrame.SetPaintingFrameData(randomGenericPaintingData);
                 currentFrame.SetCodeNumber(randomNumberSprite);
             }
+        }
+
+        public void WrongAnswer()
+        {
+            Fail(false);
         }
     }
 }
