@@ -32,12 +32,7 @@ namespace Scenes.VaultArt
         }
 
         protected void Start()
-        {   /*
-            PaintingFrame currentFrame = frames[0];
-            PaintingFrameData paintingData = roomAPaintings[1];
-            currentFrame.SetPaintingFrameData(paintingData);
-            currentFrame.SetCodeNumber(numbersSprites[1]);
-            */
+        {   
             Generate();
         }
 

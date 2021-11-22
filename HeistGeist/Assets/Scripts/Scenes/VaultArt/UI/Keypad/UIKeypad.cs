@@ -31,7 +31,7 @@ namespace Keypad
         {
             if (CheckAnswer())
             {
-                print("Right answer");
+                correctAnswer.Invoke();
                 foreach (UINumberButton numberButton in numberButtons)
                 {
                     numberButton.SetGreen();

@@ -8070,7 +8070,19 @@ MonoBehaviour:
   enterButton: {fileID: 2099775640}
   correctAnswer:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 557484334}
+        m_TargetAssemblyTypeName: Scenes.VaultArt.Door, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1115269795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5480960789093909487, guid: 9819b2b5a1a0ecd4ebd3570d95e69c04, type: 3}
