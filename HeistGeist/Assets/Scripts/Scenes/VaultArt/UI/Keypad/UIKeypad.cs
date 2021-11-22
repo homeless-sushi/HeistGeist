@@ -70,14 +70,15 @@ namespace Keypad
 
         private bool CheckAnswer()
         {
-            bool correct = true;
+            if (!_currentAnswer.Any())
+                return false;
             for(int i = 0; i < _currentAnswer.Count() && i < _rightAnswer.Count(); i++)
             {
                 if (_currentAnswer[i] != _rightAnswer[i])
-                    correct = false;
+                    return false;
             }
 
-            return correct;
+            return true;
         }
     }
 }
