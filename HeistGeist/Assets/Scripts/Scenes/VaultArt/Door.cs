@@ -10,7 +10,7 @@ namespace Scenes.VaultArt
         private SpriteRenderer _doorSpriteRenderer;
         [SerializeField] private Collider2D doorCollider;
 
-        //[SerializeField] private UnityEvent enterEvent;
+        [SerializeField] private UnityEvent enterEvent;
         //private bool open = false;
 
         private void Awake()
@@ -20,8 +20,7 @@ namespace Scenes.VaultArt
 
         public void OnTriggerEnter2D(Collider2D other)
         {
-            //enterEvent.Invoke();
-            print("enter");
+            enterEvent.Invoke();
         }
 
         public void Open()

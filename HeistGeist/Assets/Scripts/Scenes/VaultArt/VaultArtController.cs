@@ -87,5 +87,10 @@ namespace Scenes.VaultArt
         {
             Fail(false);
         }
+
+        public void EnterDoor()
+        {
+            GameManager.LoadNextScene(Scene.VaultArt);
+        }
     }
 }

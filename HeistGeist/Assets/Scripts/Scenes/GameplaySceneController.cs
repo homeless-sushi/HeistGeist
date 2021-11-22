@@ -13,7 +13,7 @@ namespace Scenes
             GameManager.Instance.AddStrike();
             if (restartScene)
             {
-                GameManager.Instance.RestartScene();
+                GameManager.RestartScene();
             }
         }
     }

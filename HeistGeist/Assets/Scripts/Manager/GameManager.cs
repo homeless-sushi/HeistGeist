@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Scene = Scenes.Scene;
 
 namespace Manager
 {
@@ -9,7 +10,6 @@ namespace Manager
         [SerializeField] private int currStrikes;
 
         private Timer _timer;
-        private SceneFlow _sceneFlow;
         
         public void AddStrike()
         {
@@ -23,8 +23,6 @@ namespace Manager
         protected override void Awake()
         {
             base.Awake();
-            
-            _sceneFlow = new SceneFlow(SceneManager.GetActiveScene().buildIndex);
         }
 
         protected void Start()
@@ -33,14 +31,23 @@ namespace Manager
             _timer.expired.AddListener(GameOver);
         }
 
-        public void RestartScene()
+        public static void RestartScene()
         {
-            _sceneFlow.RestartScene();
+            LoadNextScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        private void GameOver()
+        public static void LoadNextScene(int scene)
         {
-            _sceneFlow.GameOver();
+            SceneManager.LoadScene(scene);
+        }
+        
+        public static void LoadNextScene(Scene scene)
+        {
+            SceneManager.LoadScene((int)scene);
+        }
+
+        private static void GameOver()
+        {
         }
     }
 }
