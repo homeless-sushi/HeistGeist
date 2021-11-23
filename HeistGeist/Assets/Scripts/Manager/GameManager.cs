@@ -7,7 +7,9 @@ namespace Manager
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private int maxStrikes;
+        public int MaxStrikes { get; private set; }
         [SerializeField] private int currStrikes;
+        public int CurrStrikes { get; private set; }
 
         private Timer _timer;
         

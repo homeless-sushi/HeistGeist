@@ -11,6 +11,10 @@ namespace Manager
 
         public UnityEvent expired;
 
+        private void Awake(){
+            expired = new UnityEvent();
+        }
+
         private void Update()
         {
             if (!isRunning)
