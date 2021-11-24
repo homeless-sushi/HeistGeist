@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,15 +6,20 @@ namespace Scenes.StartMenu
 {
     public class MainMenu : MonoBehaviour
     {
-        public void PlayGame ()
+        public void PlayGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
         }
     
-        public void QuitGame ()
+        public void QuitGame()
         {
-            Debug.Log ("Quit the game");
-            Application.Quit();
+            #if UNITY_EDITOR
+                EditorApplication.ExitPlaymode();
+            #endif
+
+            #if UNITY_STANDALONE
+                Application.Quit(); 
+            #endif
         }
     }
 }
