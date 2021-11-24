@@ -53,6 +53,9 @@ TagManager:
   - name: Blocking
     uniqueID: 413327577
     locked: 0
+  - name: FourthWall
+    uniqueID: 1897719685
+    locked: 0
   - name: Floating
     uniqueID: 3694965627
     locked: 0
