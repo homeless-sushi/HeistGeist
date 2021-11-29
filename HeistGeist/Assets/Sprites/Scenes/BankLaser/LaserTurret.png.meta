@@ -4,28 +4,28 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 5353818067291673472
-    second: LaserTurret_0
+    second: LaserTurret_dark_tf
   - first:
       213: 2939127264736458557
-    second: LaserTurret_1
+    second: LaserTurret_dark_tb
   - first:
       213: -6365735258697478982
-    second: LaserTurret_2
+    second: LaserTurret_dark_sf
   - first:
       213: -521467105806009669
-    second: LaserTurret_3
+    second: LaserTurret_dark_sb
   - first:
       213: 5760498532820152504
-    second: LaserTurret_4
+    second: LaserTurret_light_tf
   - first:
       213: -3401399865361475631
-    second: LaserTurret_5
+    second: LaserTurret_light_tb
   - first:
       213: -6374070482896861840
-    second: LaserTurret_6
+    second: LaserTurret_light_sf
   - first:
       213: -3373355158255574748
-    second: LaserTurret_7
+    second: LaserTurret_light_sb
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LaserTurret_0
+      name: LaserTurret_dark_tf
       rect:
         serializedVersion: 2
         x: 0
@@ -148,7 +148,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LaserTurret_1
+      name: LaserTurret_dark_tb
       rect:
         serializedVersion: 2
         x: 271
@@ -169,7 +169,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LaserTurret_2
+      name: LaserTurret_dark_sf
       rect:
         serializedVersion: 2
         x: 544
@@ -190,7 +190,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LaserTurret_3
+      name: LaserTurret_dark_sb
       rect:
         serializedVersion: 2
         x: 816
@@ -211,7 +211,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LaserTurret_4
+      name: LaserTurret_light_tf
       rect:
         serializedVersion: 2
         x: 0
@@ -232,7 +232,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LaserTurret_5
+      name: LaserTurret_light_tb
       rect:
         serializedVersion: 2
         x: 272
@@ -253,7 +253,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LaserTurret_6
+      name: LaserTurret_light_sf
       rect:
         serializedVersion: 2
         x: 544
@@ -274,7 +274,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LaserTurret_7
+      name: LaserTurret_light_sb
       rect:
         serializedVersion: 2
         x: 816

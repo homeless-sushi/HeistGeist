@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ArtPuzzle.unity
     guid: 47a228fd41759e941890bf5632e112a0
+  - enabled: 1
+    path: Assets/Scenes/LaserPuzzle.unity
+    guid: 637d85e1f0f714c70a78f29c8017b125
   m_configObjects: {}
