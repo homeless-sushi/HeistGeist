@@ -4,6 +4,7 @@
     {
         StartMenu = 0,
         VaultArt = 1,
+        RestartScene = 2,
     }
 
     public class SceneFlow
