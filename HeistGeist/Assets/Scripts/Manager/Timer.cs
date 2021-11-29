@@ -7,7 +7,7 @@ namespace Manager
     public class Timer : MonoBehaviour
     {
         [SerializeField] private float secondsRemaining;
-        [SerializeField] private bool isRunning = true;
+        [SerializeField] public bool isRunning = false;
 
         public UnityEvent expired;
 

@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsRemaining: 60
-  isRunning: 1
+  isRunning: 0
   expired:
     m_PersistentCalls:
       m_Calls: []

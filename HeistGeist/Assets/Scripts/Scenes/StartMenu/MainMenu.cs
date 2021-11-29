@@ -1,3 +1,4 @@
+using Manager;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ namespace Scenes.StartMenu
         public void PlayGame()
         {
             SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
+            GameManager.Instance.GameplayStart();
         }
     
         public void QuitGame()

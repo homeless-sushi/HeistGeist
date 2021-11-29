@@ -2,6 +2,7 @@ using Keypad;
 using Manager;
 using Scenes.VaultArt.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Scenes.VaultArt
@@ -90,7 +91,7 @@ namespace Scenes.VaultArt
 
         public void EnterDoor()
         {
-            GameManager.LoadNextScene(Scene.VaultArt);
+            SceneManager.LoadScene((int) Scene.VaultArt);
         }
     }
 }

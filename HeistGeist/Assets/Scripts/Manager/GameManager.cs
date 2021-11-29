@@ -1,3 +1,4 @@
+using Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Scene = Scenes.Scene;
@@ -13,15 +14,6 @@ namespace Manager
 
         private Timer _timer;
         
-        public void AddStrike()
-        {
-            currStrikes++;
-            if (currStrikes >= maxStrikes)
-            {
-                GameOver();
-            }
-        }
-        
         protected override void Awake()
         {
             base.Awake();
@@ -32,24 +24,31 @@ namespace Manager
             _timer = GetComponent<Timer>();
             _timer.expired.AddListener(GameOver);
         }
-
-        public static void RestartScene()
-        {
-            LoadNextScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        public static void LoadNextScene(int scene)
-        {
-            SceneManager.LoadScene(scene);
-        }
         
-        public static void LoadNextScene(Scene scene)
+        public void AddStrike()
+                 {
+                     currStrikes++;
+                     if (currStrikes >= maxStrikes)
+                     {
+                         GameOver();
+                     }
+                 }
+
+        public void GameplayStart()
         {
-            SceneManager.LoadScene((int)scene);
+            _timer.isRunning = true;
+            currStrikes = maxStrikes;
         }
 
-        private static void GameOver()
+        public void GameplayEnd()
         {
+            _timer.isRunning = false;
+        }
+
+        private void GameOver()
+        {
+            GameplayEnd();
+            SceneManager.LoadScene((int) Scene.RestartScene);
         }
     }
 }
