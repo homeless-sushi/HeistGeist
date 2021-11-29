@@ -12,7 +12,7 @@ namespace Scenes.RestartScreen
 
         public void GoToMainMenu()
         {
-            SceneManager.LoadScene((int) Scene.StartMenu);
+            SceneManager.LoadScene((int) Scene.StartScreen);
         }
 
         public void QuitGame()

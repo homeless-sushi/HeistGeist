@@ -48,7 +48,7 @@ namespace Manager
         private void GameOver()
         {
             GameplayEnd();
-            SceneManager.LoadScene((int) Scene.RestartScene);
+            SceneManager.LoadScene((int) Scene.RestartScreen);
         }
     }
 }

@@ -2,9 +2,9 @@
 {
     public enum Scene
     {
-        StartMenu = 0,
+        StartScreen = 0,
         VaultArt = 1,
-        RestartScene = 2,
+        RestartScreen = 2,
     }
 
     public class SceneFlow

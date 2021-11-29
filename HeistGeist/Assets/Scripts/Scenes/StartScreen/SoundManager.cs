@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scenes.StartMenu
+namespace Scenes.StartScreen
 {
     public class SoundManager : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scenes.StartMenu
+namespace Scenes.StartScreen
 {
     public class MainMenu : MonoBehaviour
     {
