@@ -1,4 +1,6 @@
 using Scenes;
+using System;
+using Manager.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Scene = Scenes.Scene;
@@ -8,12 +10,15 @@ namespace Manager
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private int maxStrikes;
-        public int MaxStrikes { get; private set; }
         [SerializeField] private int currStrikes;
-        public int CurrStrikes { get; private set; }
+        public int MaxStrikes => maxStrikes;
+        public int CurrStrikes => currStrikes;
+
+        [Header("UI")]
+        [SerializeField] private TimerStrikesUI timerStrikesUI;
 
         private Timer _timer;
-        
+                
         protected override void Awake()
         {
             base.Awake();
@@ -23,26 +28,39 @@ namespace Manager
         {
             _timer = GetComponent<Timer>();
             _timer.expired.AddListener(GameOver);
+            
+            timerStrikesUI.SetTime(_timer.GetRemainingTime());
+            timerStrikesUI.SetStrikes(currStrikes);
+        }
+
+        private void Update()
+        {
+            timerStrikesUI.SetTime(_timer.GetRemainingTime());
         }
         
         public void AddStrike()
-                 {
-                     currStrikes++;
-                     if (currStrikes >= maxStrikes)
-                     {
-                         GameOver();
-                     }
-                 }
+        {
+            currStrikes++;
+            timerStrikesUI.SetStrikes(currStrikes);
+            if (currStrikes >= maxStrikes)
+            {
+                GameOver();
+            }
+        }
 
         public void GameplayStart()
         {
             _timer.isRunning = true;
-            currStrikes = maxStrikes;
+            currStrikes = 0;
+
+            timerStrikesUI.gameObject.SetActive(true);
         }
 
         public void GameplayEnd()
         {
             _timer.isRunning = false;
+            
+            timerStrikesUI.gameObject.SetActive(false);
         }
 
         private void GameOver()
