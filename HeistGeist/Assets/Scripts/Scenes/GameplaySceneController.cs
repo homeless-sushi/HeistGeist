@@ -1,6 +1,7 @@
 using System;
 using Manager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scenes
 {
@@ -13,7 +14,7 @@ namespace Scenes
             GameManager.Instance.AddStrike();
             if (restartScene)
             {
-                GameManager.RestartScene();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }
