@@ -6,7 +6,12 @@ namespace Player
     {
         private static string _horizontalAxis = "Horizontal";
         private static string _verticalAxis = "Vertical";
-        private static KeyCode _crouchKey = KeyCode.LeftControl;
+        private static KeyCode _crouchKey = 
+#if UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX
+            KeyCode.LeftCommand;
+#else 
+            KeyCode.LeftControl;
+#endif
         private static KeyCode _interactKey = KeyCode.Space;
 
         public Vector2 Direction => new Vector2(
