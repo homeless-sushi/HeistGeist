@@ -11,6 +11,8 @@ namespace Player.State
             private float _transitionOutTimeLeft; //how long until transitioning to crouch
             private float _speed;
             private float _friction;
+            
+            public Value Value => Value.Slide;
 
             public void OnEnter(PlayerController playerController)
             {

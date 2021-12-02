@@ -4,6 +4,8 @@ namespace Player.State
 {
     public class Idle : IState
     {
+        public Value Value => Value.Idle;
+
         public void OnEnter(PlayerController playerController)
         {
             playerController.Animator.SetTrigger("Idle_trig");

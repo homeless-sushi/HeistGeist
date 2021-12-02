@@ -24,6 +24,7 @@ namespace Player
                 _state.OnEnter(this);
             }
         }
+        public State.Value StateValue => State.Value;
 
         public PlayerInput PlayerInput { get; private set; }
         public UnityEvent InteractEvent { get; private set; }

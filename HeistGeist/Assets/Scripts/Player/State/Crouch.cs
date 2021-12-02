@@ -4,6 +4,7 @@ namespace Player.State
 {
     public class Crouch : IState
     {
+        public Value Value => Value.Crouch;
         
         public void OnEnter(PlayerController playerController)
         {

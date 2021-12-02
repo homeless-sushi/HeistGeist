@@ -4,6 +4,8 @@ namespace Player.State
 {
     public class Walk : IState
     {
+        public Value Value => Value.Walk;
+        
         public void OnEnter(PlayerController playerController)
         {
             playerController.Animator.SetTrigger("Walk_trig");
