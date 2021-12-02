@@ -71,6 +71,7 @@ namespace Manager
             _isGameplayOn = false;
             
             _timer.isRunning = false;
+            _timer.Reset();
             
             timerStrikesUI.gameObject.SetActive(false);
         }
