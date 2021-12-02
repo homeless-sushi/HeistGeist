@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 namespace Scenes.BankLaser
 {
     [RequireComponent(typeof(Collider2D))]
-    public class Laser : MonoBehaviour
+    internal class Laser : MonoBehaviour
     {
         [Serializable]
         public struct LaserSpriteRenderers
@@ -94,22 +94,24 @@ namespace Scenes.BankLaser
             laserSpriteRenderers.upper.enabled = false;
         }
 
-        public void LightOn()
+        public void Light(LightStatus status)
         {
-            ResetLight();
-            SetLight(true);
-        }
-        
-        public void LightOff()
-        {
-            ResetLight();
-            SetLight(false);
-        }
-        
-        public void LightBlink()
-        {
-            ResetLight();
-            _blinkCoroutine = StartCoroutine(LightBlinkCoroutine());
+            if(_blinkCoroutine != null)
+                StopCoroutine(_blinkCoroutine);
+            switch (status)
+            {
+                case LightStatus.Off:
+                    SetLightOff();
+                    break;
+                case LightStatus.On:
+                    SetLightOn();
+                    break;
+                case LightStatus.Blink:
+                    _blinkCoroutine = StartCoroutine(LightBlinkCoroutine());
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(status));
+            }
         }
 
         private void SetLaserColor(SpriteRenderer laserSpriteRenderer, Color color)
@@ -128,27 +130,32 @@ namespace Scenes.BankLaser
             lightSpriteRenderer.transform.localPosition = sprites.lightOffset;
         }
 
-        private void ResetLight()
+        private void SetLightOn()
         {
-            if(_blinkCoroutine != null)
-                StopCoroutine(_blinkCoroutine);
+            lightSpriteRenderer.sprite = lightSprite.lightOn;
         }
-        
-        private void SetLight(bool status)
+
+        private void SetLightOff()
         {
-            lightSpriteRenderer.sprite = status ? lightSprite.lightOn : lightSprite.lightOff;
+            lightSpriteRenderer.sprite = lightSprite.lightOff;
         }
 
         private IEnumerator LightBlinkCoroutine()
         {
-            print(lightBlinkSemiPeriod);
             while(true)
             {
-                SetLight(true);
+                SetLightOn();
                 yield return new WaitForSeconds(lightBlinkSemiPeriod + Random.Range(-lightBlinkError, lightBlinkError));
-                SetLight(false);
+                SetLightOff();
                 yield return new WaitForSeconds(lightBlinkSemiPeriod + Random.Range(-lightBlinkError, lightBlinkError));
             }
         }
+    }
+
+    internal enum LightStatus
+    {
+        Off = 0,
+        On = 1,
+        Blink = 2,
     }
 }
