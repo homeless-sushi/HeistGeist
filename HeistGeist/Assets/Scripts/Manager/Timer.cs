@@ -22,7 +22,7 @@ namespace Manager
             
             if (secondsRemaining > 0)
             {
-                secondsRemaining -= Time.deltaTime;
+                secondsRemaining -= Time.unscaledDeltaTime;
             }
             else 
             {

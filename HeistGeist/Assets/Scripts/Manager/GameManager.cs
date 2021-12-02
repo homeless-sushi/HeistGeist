@@ -1,6 +1,7 @@
 using Scenes;
 using System;
 using Manager.UI;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Scene = Scenes.Scene;
@@ -9,6 +10,9 @@ namespace Manager
 {
     public class GameManager : Singleton<GameManager>
     {
+        private bool _isGameplayOn = false;
+        public bool IsGameplayOn => _isGameplayOn;
+
         [SerializeField] private int maxStrikes;
         [SerializeField] private int currStrikes;
         public int MaxStrikes => maxStrikes;
@@ -18,15 +22,19 @@ namespace Manager
         [SerializeField] private TimerStrikesUI timerStrikesUI;
 
         private Timer _timer;
-                
+        
+        private PauseManager _pauseManager;
+        public PauseManager PauseManager => _pauseManager;
         protected override void Awake()
         {
             base.Awake();
+            
+            _timer = GetComponent<Timer>();
+            _pauseManager = GetComponent<PauseManager>();
         }
 
         protected void Start()
         {
-            _timer = GetComponent<Timer>();
             _timer.expired.AddListener(GameOver);
             
             timerStrikesUI.SetTime(_timer.GetRemainingTime());
@@ -50,6 +58,8 @@ namespace Manager
 
         public void GameplayStart()
         {
+            _isGameplayOn = true;
+            
             _timer.isRunning = true;
             currStrikes = 0;
 
@@ -58,6 +68,8 @@ namespace Manager
 
         public void GameplayEnd()
         {
+            _isGameplayOn = false;
+            
             _timer.isRunning = false;
             
             timerStrikesUI.gameObject.SetActive(false);
