@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scenes.BankLaser
 {
@@ -99,6 +100,11 @@ namespace Scenes.BankLaser
         private void LaserCollision()
         {
             Fail(false);
+        }
+        
+        public void EnterDoor()
+        {
+            SceneManager.LoadScene((int) SceneFlow.GetRandomVaultScene());
         }
     }
 }

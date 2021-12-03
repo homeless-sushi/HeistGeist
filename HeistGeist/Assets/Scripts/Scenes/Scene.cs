@@ -6,6 +6,7 @@
         VaultArt = 1,
         RestartScreen = 2,
         BankLaser = 3,
+        PauseScreen = 4,
     }
 
     public class SceneFlow

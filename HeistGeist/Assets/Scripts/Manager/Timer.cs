@@ -6,6 +6,7 @@ namespace Manager
 {
     public class Timer : MonoBehaviour
     {
+        [SerializeField] private float startingTime = 300;
         [SerializeField] private float secondsRemaining;
         [SerializeField] public bool isRunning = false;
 
@@ -13,6 +14,7 @@ namespace Manager
 
         private void Awake(){
             expired = new UnityEvent();
+            secondsRemaining = startingTime;
         }
 
         private void Update()
@@ -22,7 +24,7 @@ namespace Manager
             
             if (secondsRemaining > 0)
             {
-                secondsRemaining -= Time.deltaTime;
+                secondsRemaining -= Time.unscaledDeltaTime;
             }
             else 
             {
@@ -35,6 +37,11 @@ namespace Manager
         public TimeSpan GetRemainingTime()
         {
             return new TimeSpan(0, 0, (int) secondsRemaining);
+        }
+
+        public void Reset()
+        {
+            secondsRemaining = startingTime;
         }
     }
 }

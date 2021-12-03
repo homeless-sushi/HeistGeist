@@ -232,8 +232,8 @@ MonoBehaviour:
   enterEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scenes.VaultArt.VaultArtController, Assembly-CSharp
+      - m_Target: {fileID: 2036856088}
+        m_TargetAssemblyTypeName: Scenes.BankLaser.BankLaserController, Assembly-CSharp
         m_MethodName: EnterDoor
         m_Mode: 1
         m_Arguments:

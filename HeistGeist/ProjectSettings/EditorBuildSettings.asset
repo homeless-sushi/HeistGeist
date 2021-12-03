@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LaserPuzzle.unity
     guid: 637d85e1f0f714c70a78f29c8017b125
+  - enabled: 1
+    path: Assets/Scenes/PauseScreen.unity
+    guid: 6ffdcde5c555ca241bfb1d183f93435c
   m_configObjects: {}
