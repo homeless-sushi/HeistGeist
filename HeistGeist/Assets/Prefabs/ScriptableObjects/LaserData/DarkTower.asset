@@ -15,8 +15,8 @@ MonoBehaviour:
   tallSprites:
     front: {fileID: 5353818067291673472, guid: e4ebf421412574042b58f73e23ca7b63, type: 3}
     back: {fileID: 2939127264736458557, guid: e4ebf421412574042b58f73e23ca7b63, type: 3}
-    lightOffset: {x: -0.04, y: 0.8, z: 0}
+    lightOffset: {x: 0.06, y: 0.8, z: 0}
   shortSprites:
     front: {fileID: -6365735258697478982, guid: e4ebf421412574042b58f73e23ca7b63, type: 3}
     back: {fileID: -521467105806009669, guid: e4ebf421412574042b58f73e23ca7b63, type: 3}
-    lightOffset: {x: -0.04, y: 0.55, z: 0}
+    lightOffset: {x: 0.06, y: 0.55, z: 0}

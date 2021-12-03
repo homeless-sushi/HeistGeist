@@ -10,9 +10,20 @@ namespace Scenes.BankLaser
         [SerializeField]
         private GameObject laserPrefab;
         [SerializeField]
-        private Vector2[] lasersPositions;
-        [SerializeField]
         private int lasersCount;
+        [SerializeField]
+        private Vector2[] lasersPositions;
+        
+        [Space(20)]
+        [Header("Colors")]
+        [SerializeField]
+        private Color redLaserColor;
+        [SerializeField]
+        private Color blueLaserColor;
+        [SerializeField]
+        private Color upperLaserColor;
+        [SerializeField]
+        private Color defaultLaserColor;
 
         [Space(20)]
         [Header("Flags")]
@@ -30,8 +41,57 @@ namespace Scenes.BankLaser
         {
             foreach (var position in Utils.Sample(lasersPositions, lasersCount))
             {
-                Instantiate(laserPrefab, position, Quaternion.identity).GetComponent<Laser>();
+                var laser = GenerateLaser(position);
             }
+        }
+
+        private Laser GenerateLaser(Vector2 position)
+        {
+            var laser = Instantiate(laserPrefab, position, Quaternion.identity).GetComponent<Laser>();
+            var flags = flagGenerator.GetFlags();
+            
+            // Light
+            if((flags & Flags.TowerType) != 0)
+                laser.Light(LightStatus.Blink);
+            else if((flags & Flags.LightOn) != 0)
+                laser.Light(LightStatus.On);
+            else
+                laser.Light(LightStatus.Off);
+            
+            // Colors
+            if ((flags & Flags.RedLaser) != 0 && (flags & Flags.BlueLaser) != 0)
+            {
+                // Red and Blue
+                var p = Random.value;
+                laser.MiddleLaserColor(p < .5 ? redLaserColor : blueLaserColor);
+                laser.LowerLaserColor(p < .5 ? blueLaserColor : redLaserColor);
+            }
+            else if ((flags & Flags.RedLaser) != 0)
+            {
+                // Red only
+                var p = Random.value;
+                laser.MiddleLaserColor(p < 2 / 3f ? redLaserColor : defaultLaserColor);
+                laser.LowerLaserColor(p > 1 / 3f ? redLaserColor : defaultLaserColor);
+            }
+            else if((flags & Flags.BlueLaser) != 0)
+            {
+                // Blue only
+                var p = Random.value;
+                laser.MiddleLaserColor(p < 2 / 3f ? blueLaserColor : defaultLaserColor);
+                laser.LowerLaserColor(p > 1 / 3f ? blueLaserColor : defaultLaserColor);
+            }
+            
+            // Tower
+            if((flags & Flags.ThirdLaser) != 0)
+            {
+                laser.UpperLaserColor(upperLaserColor);
+                laser.TowerTall();
+            }
+            else
+                laser.TowerShort();
+            laser.TowerType((flags & Flags.TowerType) != 0 ? 1 : 0);
+
+            return laser;
         }
     }
 }

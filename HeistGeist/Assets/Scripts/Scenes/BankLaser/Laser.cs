@@ -30,8 +30,6 @@ namespace Scenes.BankLaser
         [Space(10)]
         [Header("Sprites")]
         [SerializeField]
-        private float laserTransparency;
-        [SerializeField]
         private TowerSpriteData[] towerSprites;
         [SerializeField]
         private LightSpriteData lightSprite;
@@ -44,7 +42,7 @@ namespace Scenes.BankLaser
         private int _currentTowerType;
         private Coroutine _blinkCoroutine;
 
-        private void Awake()
+        private void Start()
         {
             UpdateTowerSprites();
         }
@@ -61,35 +59,41 @@ namespace Scenes.BankLaser
 
         public void UpperLaserColor(Color color)
         {
-            SetLaserColor(laserSpriteRenderers.upper, color);
+            laserSpriteRenderers.upper.color = color;
         }
 
         public void MiddleLaserColor(Color color)
         {
-            SetLaserColor(laserSpriteRenderers.middle, color);
+            laserSpriteRenderers.middle.color = color;
         }
 
         public void LowerLaserColor(Color color)
         {
-            SetLaserColor(laserSpriteRenderers.lower, color);
+            laserSpriteRenderers.lower.color = color;
         }
 
         public void TowerType(int typeID)
         {
             _currentTowerType = typeID;
-            UpdateTowerSprites();
         }
 
         public void TowerTall()
         {
             _tallTowerFlag = true;
-            UpdateTowerSprites();
         }
         
         public void TowerShort()
         {
             _tallTowerFlag = false;
-            UpdateTowerSprites();
+        }
+        
+        public void UpdateTowerSprites()
+        {
+            laserSpriteRenderers.upper.enabled = _tallTowerFlag;
+            var sprites = CurrentTowerSprites;
+            towerSpriteRenderers.front.sprite = sprites.front;
+            towerSpriteRenderers.back.sprite = sprites.back;
+            lightSpriteRenderer.transform.localPosition = sprites.lightOffset;
         }
 
         public void Light(LightStatus status)
@@ -111,23 +115,8 @@ namespace Scenes.BankLaser
                     throw new ArgumentOutOfRangeException(nameof(status));
             }
         }
-
-        private void SetLaserColor(SpriteRenderer laserSpriteRenderer, Color color)
-        {
-            color.a = laserTransparency;
-            laserSpriteRenderer.color = color;
-        }
         
         private TowerSpriteData.TowerSprite CurrentTowerSprites => _tallTowerFlag ? towerSprites[_currentTowerType].tallSprites : towerSprites[_currentTowerType].shortSprites;
-        
-        private void UpdateTowerSprites()
-        {
-            laserSpriteRenderers.upper.enabled = _tallTowerFlag;
-            var sprites = CurrentTowerSprites;
-            towerSpriteRenderers.front.sprite = sprites.front;
-            towerSpriteRenderers.back.sprite = sprites.back;
-            lightSpriteRenderer.transform.localPosition = sprites.lightOffset;
-        }
 
         private void SetLightOn()
         {
