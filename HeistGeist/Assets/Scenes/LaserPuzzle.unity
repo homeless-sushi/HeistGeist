@@ -25787,6 +25787,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 7781787679764084980, guid: ecaadaf78042f7748a2fc858738a159e, type: 3}
+  lasersPositions:
+  - {x: 6, y: 6}
+  - {x: 9, y: 6}
+  - {x: 12, y: 6}
+  - {x: 24, y: 13}
+  - {x: 41, y: 5}
+  - {x: 45, y: 5}
+  lasersCount: 6
   flagGenerator:
     redLaser: 0.5
     blueLaser: 0.5

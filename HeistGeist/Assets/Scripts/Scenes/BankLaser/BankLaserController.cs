@@ -1,11 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Scenes.BankLaser
 {
     public class BankLaserController : GameplaySceneController
     {
-        public GameObject laserPrefab;
-        
+        [Space(20)]
+        [Header("Lasers")]
+        [SerializeField]
+        private GameObject laserPrefab;
+        [SerializeField]
+        private Vector2[] lasersPositions;
+        [SerializeField]
+        private int lasersCount;
+
+        [Space(20)]
+        [Header("Flags")]
         [SerializeField]
         private FlagGenerator flagGenerator;
         [SerializeField]
@@ -18,28 +28,10 @@ namespace Scenes.BankLaser
 
         protected override void Generate()
         {
-            Laser laser;
-            laser = Instantiate(laserPrefab, new Vector3(7, 6, 0), Quaternion.identity).GetComponent<Laser>();
-            laser.TowerType(0);
-            laser.TowerTall();
-            laser.Light(LightStatus.Blink);
-            laser.LowerLaserColor(Color.red);
-            laser = Instantiate(laserPrefab, new Vector3(9, 6, 0), Quaternion.identity).GetComponent<Laser>();
-            laser.TowerType(0);
-            laser.TowerShort();
-            laser.MiddleLaserColor(Color.blue);
-            laser.Light(LightStatus.Blink);
-            laser = Instantiate(laserPrefab, new Vector3(11, 6, 0), Quaternion.identity).GetComponent<Laser>();
-            laser.TowerType(1);
-            laser.TowerTall();
-            laser.MiddleLaserColor(Color.red);
-            laser.UpperLaserColor(Color.yellow);
-            laser.Light(LightStatus.Blink);
-            laser = Instantiate(laserPrefab, new Vector3(13, 6, 0), Quaternion.identity).GetComponent<Laser>();
-            laser.TowerType(1);
-            laser.TowerShort();
-            laser.LowerLaserColor(Color.blue);
-            laser.Light(LightStatus.Blink);
+            foreach (var position in Utils.Sample(lasersPositions, lasersCount))
+            {
+                Instantiate(laserPrefab, position, Quaternion.identity).GetComponent<Laser>();
+            }
         }
     }
 }

@@ -84,14 +84,12 @@ namespace Scenes.BankLaser
         {
             _tallTowerFlag = true;
             UpdateTowerSprites();
-            laserSpriteRenderers.upper.enabled = true;
         }
         
         public void TowerShort()
         {
             _tallTowerFlag = false;
             UpdateTowerSprites();
-            laserSpriteRenderers.upper.enabled = false;
         }
 
         public void Light(LightStatus status)
@@ -124,6 +122,7 @@ namespace Scenes.BankLaser
         
         private void UpdateTowerSprites()
         {
+            laserSpriteRenderers.upper.enabled = _tallTowerFlag;
             var sprites = CurrentTowerSprites;
             towerSpriteRenderers.front.sprite = sprites.front;
             towerSpriteRenderers.back.sprite = sprites.back;
