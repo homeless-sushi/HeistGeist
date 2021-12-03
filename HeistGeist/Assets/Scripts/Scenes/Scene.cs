@@ -17,12 +17,12 @@
 
         public static Scene GetRandomOutsideScene()
         {
-            return Scene.VaultArt;
+            return Scene.BankLaser;
         }
 
         public static Scene GetRandomBankScene()
         {
-            return Scene.VaultArt;
+            return Scene.BankLaser;
         }
 
         public static Scene GetRandomVaultScene()

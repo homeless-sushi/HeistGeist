@@ -62,6 +62,7 @@ namespace Manager
             
             _timer.isRunning = true;
             currStrikes = 0;
+            timerStrikesUI.SetStrikes(0);
 
             timerStrikesUI.gameObject.SetActive(true);
         }

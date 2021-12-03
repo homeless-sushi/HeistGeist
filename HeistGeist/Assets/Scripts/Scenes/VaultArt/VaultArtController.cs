@@ -91,7 +91,8 @@ namespace Scenes.VaultArt
 
         public void EnterDoor()
         {
-            SceneManager.LoadScene((int) Scene.VaultArt);
+            GameManager.Instance.GameplayEnd();
+            SceneManager.LoadScene((int) Scene.RestartScreen);
         }
     }
 }

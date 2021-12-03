@@ -27,6 +27,10 @@ namespace Scenes.PauseScreen
         
         public void Restart()
         {
+            GameManager.Instance.GameplayEnd();
+            GameManager.Instance.PauseManager.Resume();
+            SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
+            GameManager.Instance.GameplayStart();
         }
 
         public void GoToMainMenu()
