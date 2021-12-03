@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scenes.BankLaser
 {
@@ -91,7 +90,15 @@ namespace Scenes.BankLaser
                 laser.TowerShort();
             laser.TowerType((flags & Flags.TowerType) != 0 ? 1 : 0);
 
+            laser.expectedState = flagsChecker.ExpectedState(flags);
+            laser.collisionEvent.AddListener(LaserCollision);
+            
             return laser;
+        }
+        
+        private void LaserCollision()
+        {
+            Fail(false);
         }
     }
 }

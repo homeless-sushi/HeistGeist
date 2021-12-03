@@ -604,13 +604,16 @@ MonoBehaviour:
     front: {fileID: 7781787679507321251}
     back: {fileID: 7781787678714846934}
   lightSpriteRenderer: {fileID: 7781787679414821487}
-  laserTransparency: 0.5
   towerSprites:
   - {fileID: 11400000, guid: d73178289dd8cb24dbea8129ca0197d8, type: 2}
   - {fileID: 11400000, guid: 2f4dd5e7df2d40f43b3fb2e6741f256c, type: 2}
   lightSprite: {fileID: 11400000, guid: 5e8510aa5528c4541937ae8139c6762e, type: 2}
   lightBlinkSemiPeriod: 0.4
   lightBlinkError: 0.05
+  expectedState: 1
+  collisionEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!68 &7781787679764084985
 EdgeCollider2D:
   m_ObjectHideFlags: 0

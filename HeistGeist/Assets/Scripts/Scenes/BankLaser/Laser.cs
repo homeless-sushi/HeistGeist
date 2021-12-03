@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using Player.State;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace Scenes.BankLaser
@@ -37,6 +39,11 @@ namespace Scenes.BankLaser
         private float lightBlinkSemiPeriod;
         [SerializeField]
         private float lightBlinkError;
+        
+        [Space(10)]
+        [Header("Events")]
+        public Player.State.Value expectedState;
+        public UnityEvent collisionEvent;
 
         private bool _tallTowerFlag;
         private int _currentTowerType;
@@ -49,12 +56,12 @@ namespace Scenes.BankLaser
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // TODO
-        }
-    
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            // TODO
+            // Ignore non player collisions
+            if(!other.CompareTag("Player"))
+                return;
+            var playerState = other.GetComponent<Player.PlayerController>().StateValue;
+            if (playerState != expectedState)
+                collisionEvent.Invoke();
         }
 
         public void UpperLaserColor(Color color)
