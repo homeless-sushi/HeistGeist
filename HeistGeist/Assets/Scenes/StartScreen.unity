@@ -591,9 +591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Slide
-
-'
+  m_text: '- Crouch, Slide when moving '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d51bc5d3baa74f0c83252aa943b81cb, type: 2}
   m_sharedMaterial: {fileID: 2885060285296782430, guid: 1d51bc5d3baa74f0c83252aa943b81cb, type: 2}
@@ -636,7 +634,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1485,7 +1483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: 500, y: 45}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &598925130
@@ -2567,7 +2565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: 500, y: 290}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &1226441652
@@ -3833,10 +3831,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To play the game, you''ll need a friend to guide you using the manual.
+  m_text: 'To play the game, you''ll need a Marstermind to guide you using the manual
+    found on the game''s itch.io page.
 
-    You
-    can download the manual on the game''s itch.io page.'
+    You can''t look at the manual and the
+    Mastermind can''t look at the screen!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d51bc5d3baa74f0c83252aa943b81cb, type: 2}
   m_sharedMaterial: {fileID: 2885060285296782430, guid: 1d51bc5d3baa74f0c83252aa943b81cb, type: 2}
