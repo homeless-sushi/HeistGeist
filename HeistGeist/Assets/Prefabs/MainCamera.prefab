@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2612514206836619258}
   - component: {fileID: 2612514206836619259}
-  - component: {fileID: 2612514206836619256}
-  - component: {fileID: 2612514206836619261}
   - component: {fileID: 5717098923522017767}
+  - component: {fileID: 469795972481933641}
+  - component: {fileID: 2612514206836619256}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -77,28 +77,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2612514206836619256
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2612514206836619257}
-  m_Enabled: 1
---- !u!114 &2612514206836619261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2612514206836619257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f822ef2badc288643bf3015fe9ad6bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTransform: {fileID: 0}
-  smoothing: 0.5
 --- !u!114 &5717098923522017767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,11 +89,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 128
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
+  m_AssetsPPU: 96
+  m_RefResolutionX: 1280
+  m_RefResolutionY: 720
   m_UpscaleRT: 1
   m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
+  m_StretchFill: 1
+--- !u!114 &469795972481933641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612514206836619257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f354bf66df15467ea2b80dacdeae914a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 0}
+  smoothing: 0.5
+  lowerBounds: {x: 0, y: 0}
+  upperBounds: {x: 0, y: 0}
+--- !u!81 &2612514206836619256
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612514206836619257}
+  m_Enabled: 1

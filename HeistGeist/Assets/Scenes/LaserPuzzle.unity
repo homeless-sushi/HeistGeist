@@ -25703,6 +25703,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: lowerBounds.x
+      value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: lowerBounds.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: upperBounds.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: upperBounds.y
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 133457909}
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: MaximumCoordinates.x
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: MaximumCoordinates.y
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: MinimumCoordinates.x
+      value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
+      propertyPath: MinimumCoordinates.y
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 2612514206836619257, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
       propertyPath: m_Name
       value: Main Camera
