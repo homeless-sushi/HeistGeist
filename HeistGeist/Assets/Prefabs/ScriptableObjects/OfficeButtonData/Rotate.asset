@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45264e5b739e4ddc96ad83ad4b05da59, type: 3}
+  m_Name: Rotate
+  m_EditorClassIdentifier: 
+  buttonGrey: {fileID: 21300000, guid: 523c242b5e207fb46b776e1e5aeda8a3, type: 3}
+  buttonGreen: {fileID: 21300000, guid: 9df3108a5a7ed3a42ad4b79fc7236eca, type: 3}
+  buttonRed: {fileID: 21300000, guid: 8836c8e45f7ca394799680a7ae32ea1a, type: 3}
+  number: 0
