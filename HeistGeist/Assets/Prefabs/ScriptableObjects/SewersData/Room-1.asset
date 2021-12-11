@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f2cdca1bd5c47aba700298bef8c806d, type: 3}
-  m_Name: Room0
+  m_Name: Room-1
   m_EditorClassIdentifier: 
-  cameraLowerBounds: {x: -8, y: 7}
-  cameraUpperBounds: {x: 7, y: 19}
+  cameraLowerBounds: {x: 0, y: 0}
+  cameraUpperBounds: {x: 27, y: 17}

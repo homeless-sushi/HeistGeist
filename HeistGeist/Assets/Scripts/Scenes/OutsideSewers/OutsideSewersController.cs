@@ -1,4 +1,4 @@
-using Teleport;
+
 using UnityEngine;
 
 namespace Scenes.OutsideSewers
@@ -6,7 +6,9 @@ namespace Scenes.OutsideSewers
     public class OutsideSewersController : GameplaySceneController
     {
         [SerializeField]
-        private Teleporter startPosition;
+        private Room[] rooms;
+        [SerializeField]
+        private TunnelSpriteData tunnelSpriteData;
 
         private void Start()
         {
@@ -15,7 +17,8 @@ namespace Scenes.OutsideSewers
 
         protected override void Generate()
         {
-            startPosition.Teleport();
+            rooms[0].Teleport();
+            print("Start");
         }
     }
 }
