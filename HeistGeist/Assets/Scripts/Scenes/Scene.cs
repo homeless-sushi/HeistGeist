@@ -29,5 +29,10 @@
         {
             return Scene.VaultArt;
         }
+
+        public void TransitionToOutisideScene()
+        {
+            
+        }
     }
 }
