@@ -9,24 +9,37 @@ namespace Scenes.RestartScreen
     {
         public void Restart()
         {
-            SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
-            GameManager.Instance.GameplayStart();
+            FindObjectOfType<TransitionManager>().TransitionOut(null,
+                () =>
+                {
+                    SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
+                    GameManager.Instance.GameplayStart();
+                });
         }
 
         public void GoToMainMenu()
         {
-            SceneManager.LoadScene((int) Scene.StartScreen);
+            FindObjectOfType<TransitionManager>().QuitTransition(
+                () => 
+                {
+                    SceneManager.LoadScene((int) Scene.StartScreen); 
+                });
         }
 
         public void QuitGame()
         {
-            #if UNITY_EDITOR
-                        EditorApplication.ExitPlaymode();
-            #endif
+            FindObjectOfType<TransitionManager>().QuitTransition(
+                () =>
+                {   
+                    #if UNITY_EDITOR
+                                    EditorApplication.ExitPlaymode();
+                    #endif
 
-            #if UNITY_STANDALONE
-                        Application.Quit(); 
-            #endif
+                    #if UNITY_STANDALONE
+                                    Application.Quit(); 
+                    #endif
+                });
+            
         }
     }
 }

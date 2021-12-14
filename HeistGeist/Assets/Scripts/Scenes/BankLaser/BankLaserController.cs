@@ -36,6 +36,7 @@ namespace Scenes.BankLaser
         private void Start()
         {
             Generate();
+            FindObjectOfType<TransitionManager>().TransitionIn();
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.GameplayTrack);
         }
 

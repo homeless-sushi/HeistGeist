@@ -28,6 +28,7 @@ namespace Manager
 
         private SoundManager _soundManager;
         public SoundManager SoundManager => _soundManager;
+        
         protected override void Awake()
         {
             base.Awake();

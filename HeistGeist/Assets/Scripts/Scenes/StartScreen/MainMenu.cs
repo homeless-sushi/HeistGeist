@@ -1,3 +1,4 @@
+using System;
 using Manager;
 using UnityEditor;
 using UnityEngine;
@@ -7,21 +8,35 @@ namespace Scenes.StartScreen
 {
     public class MainMenu : MonoBehaviour
     {
+        void Start()
+        {
+            FindObjectOfType<TransitionManager>().StartTransition(null);
+        }
+        
+        
         public void PlayGame()
         {
-            SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
-            GameManager.Instance.GameplayStart();
+            FindObjectOfType<TransitionManager>().TransitionOut("Inside the Bank",
+                () =>
+                {
+                    SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
+                    GameManager.Instance.GameplayStart();
+                });
         }
-    
+        
         public void QuitGame()
         {
-            #if UNITY_EDITOR
-                EditorApplication.ExitPlaymode();
-            #endif
+            FindObjectOfType<TransitionManager>().QuitTransition(
+                ()=>
+                {   
+                    #if UNITY_EDITOR
+                        EditorApplication.ExitPlaymode();
+                    #endif
 
-            #if UNITY_STANDALONE
-                Application.Quit(); 
-            #endif
+                    #if UNITY_STANDALONE
+                        Application.Quit(); 
+                    #endif
+                });
         }
     }
 }
