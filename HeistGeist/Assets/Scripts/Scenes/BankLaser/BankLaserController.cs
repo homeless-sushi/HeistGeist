@@ -54,7 +54,7 @@ namespace Scenes.BankLaser
             var flags = flagGenerator.GetFlags();
             
             // Light
-            if((flags & Flags.TowerType) != 0)
+            if((flags & Flags.LightBlink) != 0)
                 laser.Light(LightStatus.Blink);
             else if((flags & Flags.LightOn) != 0)
                 laser.Light(LightStatus.On);
