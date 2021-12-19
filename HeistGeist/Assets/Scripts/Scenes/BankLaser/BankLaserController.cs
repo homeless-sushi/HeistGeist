@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Manager;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Scenes.BankLaser
@@ -35,6 +36,7 @@ namespace Scenes.BankLaser
         private void Start()
         {
             Generate();
+            GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.GameplayTrack);
         }
 
         protected override void Generate()

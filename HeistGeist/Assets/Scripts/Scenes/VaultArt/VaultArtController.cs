@@ -36,6 +36,7 @@ namespace Scenes.VaultArt
         protected void Start()
         {   
             Generate();
+            GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.GameplayTrack);
         }
 
         protected override void Generate()
