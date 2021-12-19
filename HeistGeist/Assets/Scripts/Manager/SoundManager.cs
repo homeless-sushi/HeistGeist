@@ -27,6 +27,18 @@ namespace Manager
             masterMixer.SetFloat("MusicVolume", ToDB(linearVolume));
         }
 
+        public void SetPauseScreenEffects(bool on)
+        {
+            if (on)
+            {
+                masterMixer.FindSnapshot("MusicLowpassON").TransitionTo(0.1f);
+            }
+            else
+            {
+                masterMixer.FindSnapshot("Default").TransitionTo(0.1f);
+            }
+        }
+
         [Header("Game Music")]
         [SerializeField] private AudioSource musicSource;
         public enum Track

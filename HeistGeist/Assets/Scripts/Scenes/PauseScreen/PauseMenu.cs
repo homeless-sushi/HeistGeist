@@ -20,6 +20,16 @@ namespace Scenes.PauseScreen
                 _backupEventSystem.gameObject.SetActive(true);
         }
 
+        private void Start()
+        {
+            GameManager.Instance.SoundManager.SetPauseScreenEffects(true);
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.Instance.SoundManager.SetPauseScreenEffects(false);
+        }
+
         public void Resume()
         {
             GameManager.Instance.PauseManager.Resume();
