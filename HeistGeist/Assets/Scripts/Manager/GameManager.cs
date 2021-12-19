@@ -25,12 +25,16 @@ namespace Manager
         
         private PauseManager _pauseManager;
         public PauseManager PauseManager => _pauseManager;
+
+        private SoundManager _soundManager;
+        public SoundManager SoundManager => _soundManager;
         protected override void Awake()
         {
             base.Awake();
             
             _timer = GetComponent<Timer>();
             _pauseManager = GetComponent<PauseManager>();
+            _soundManager = GetComponent<SoundManager>();
         }
 
         protected void Start()
