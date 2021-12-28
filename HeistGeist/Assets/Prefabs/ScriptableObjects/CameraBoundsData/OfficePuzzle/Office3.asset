@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2cdca1bd5c47aba700298bef8c806d, type: 3}
   m_Name: Office3
   m_EditorClassIdentifier: 
-  cameraLowerBounds: {x: 38, y: -19}
-  cameraUpperBounds: {x: 65, y: -6}
+  cameraLowerBounds: {x: 37, y: -19}
+  cameraUpperBounds: {x: 71, y: -6}
