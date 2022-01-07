@@ -6,6 +6,7 @@ namespace Scenes.OutsideSewers
     public class Tunnel : MonoBehaviour
     {
         private SpriteRenderer _spriteRenderer;
+        public bool isExit;
         
         private void Awake()
         {
@@ -14,7 +15,12 @@ namespace Scenes.OutsideSewers
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            print("Enter");
+            print(isExit ? "Enter" : "Wrong");
+        }
+
+        public void SetSprite(Sprite sprite)
+        {
+            _spriteRenderer.sprite = sprite;
         }
     }
 }

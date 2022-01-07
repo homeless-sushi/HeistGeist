@@ -4,16 +4,16 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -6705639023677779174
-    second: tunnel_0
+    second: tunnel_normal
   - first:
       213: 2439721830314071076
-    second: tunnel_1
+    second: tunnel_wet
   - first:
       213: 7223666002751983023
-    second: tunnel_2
+    second: tunnel_mossy
   - first:
       213: -1472107814103157282
-    second: tunnel_3
+    second: tunnel_muddy
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tunnel_0
+      name: tunnel_normal
       rect:
         serializedVersion: 2
         x: 0
@@ -136,7 +136,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tunnel_1
+      name: tunnel_wet
       rect:
         serializedVersion: 2
         x: 268
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tunnel_2
+      name: tunnel_mossy
       rect:
         serializedVersion: 2
         x: 536
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tunnel_3
+      name: tunnel_muddy
       rect:
         serializedVersion: 2
         x: 804
