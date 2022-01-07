@@ -1,5 +1,6 @@
-﻿using System;
+﻿
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Scenes.OutsideSewers
 {
@@ -7,6 +8,10 @@ namespace Scenes.OutsideSewers
     {
         private SpriteRenderer _spriteRenderer;
         public bool isExit;
+        [SerializeField]
+        private UnityEvent exit;
+        [SerializeField]
+        private UnityEvent fail;
         
         private void Awake()
         {
@@ -15,7 +20,13 @@ namespace Scenes.OutsideSewers
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            print(isExit ? "Enter" : "Wrong");
+            // Ignore non player collisions
+            if(!other.CompareTag("Player"))
+                return;
+            if(isExit)
+                exit.Invoke();
+            else
+                fail.Invoke();
         }
 
         public void SetSprite(Sprite sprite)

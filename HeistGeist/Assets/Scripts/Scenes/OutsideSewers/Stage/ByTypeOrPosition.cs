@@ -2,9 +2,9 @@
 {
     public class ByTypeOrPosition : IStage
     {
-        private int _tunnelCount;
-        private int _exitType;
-        private int _exitPosition;
+        private readonly int _tunnelCount;
+        private readonly int _exitType;
+        private readonly int _exitPosition;
         
         public ByTypeOrPosition(int tunnelCount, TunnelType exitType, TunnelPosition exitPosition)
         {
@@ -15,11 +15,40 @@
         
         public StageExit LoadStage(OutsideSewersController controller)
         {
-            return new StageExit
+            var room = controller.LoadRandomRoom(_tunnelCount);
+            var exit = new StageExit
             {
-                exitType = 0,
-                exitPosition = 0,
+                exitPosition = _exitPosition
             };
+            var defaultPositionType = 0;
+            var found = false;
+            var j = 0;
+            foreach (var i in controller.TunnelTypeSample(_tunnelCount))
+            {
+                room.tunnels[j].SetSprite(controller.tunnelSprites[i]);
+                if (!found)
+                {
+                    if (i == _exitType)
+                    {
+                        exit.exitType = i;
+                        exit.exitPosition = j;
+                        room.tunnels[j].isExit = true;
+                        found = true;
+                    }
+                    else {
+                        room.tunnels[j].isExit = false;
+                        if(j == _exitPosition)
+                            defaultPositionType = i;
+                    }
+                }
+                j++;
+            }
+            if (!found)
+            {
+                exit.exitType = defaultPositionType;
+                room.tunnels[_exitPosition].isExit = true;
+            }
+            return exit;
         }
     }
 }

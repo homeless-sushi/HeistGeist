@@ -4792,6 +4792,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &73667379
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -4911,6 +4941,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &238953327
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -10799,6 +10859,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &443524874
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -11842,6 +11932,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &864880513
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -21593,6 +21713,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &1134416752
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -22817,6 +22967,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!212 &1684876351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22911,6 +23091,16 @@ MonoBehaviour:
   - {fileID: 2439721830314071076, guid: f3eef9f0e0a08bc4c8e9fcb0176d57a9, type: 3}
   - {fileID: 7223666002751983023, guid: f3eef9f0e0a08bc4c8e9fcb0176d57a9, type: 3}
   - {fileID: -1472107814103157282, guid: f3eef9f0e0a08bc4c8e9fcb0176d57a9, type: 3}
+  currentStage: 0
+  history:
+  - exitPosition: 0
+    exitType: 0
+  - exitPosition: 0
+    exitType: 0
+  - exitPosition: 0
+    exitType: 0
+  - exitPosition: 0
+    exitType: 0
 --- !u!4 &1751484418
 Transform:
   m_ObjectHideFlags: 0
@@ -22971,6 +23161,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &1753885300
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -23968,6 +24188,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &1964328274
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -24087,6 +24337,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &2017200330
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -24211,6 +24491,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExit: 0
+  exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: LoadNextStage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fail:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1751484417}
+        m_TargetAssemblyTypeName: Scenes.OutsideSewers.OutsideSewersController, Assembly-CSharp
+        m_MethodName: WrongTunnel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &2124973210
 EdgeCollider2D:
   m_ObjectHideFlags: 0

@@ -21,12 +21,16 @@
             var j = 0;
             foreach (var i in controller.TunnelTypeSample(_tunnelCount))
             {
-                room.tunnels[j].SetSprite(controller.tunnelSprites[i]);
                 if (j == _exitPosition)
                 {
                     exit.exitType = i;
                     room.tunnels[j].isExit = true;
                 }
+                else
+                {
+                    room.tunnels[j].isExit = false;
+                }
+                room.tunnels[j].SetSprite(controller.tunnelSprites[i]);
                 j++;
             }
             return exit;

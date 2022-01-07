@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scenes.OutsideSewers
 {
@@ -16,26 +16,41 @@ namespace Scenes.OutsideSewers
 
         private int[] _tunnelTypes;
 
-        public int CurrentStage { get; private set; }
-        private readonly StageExit[] _history = new StageExit[StagesCount - 1];
+        public int currentStage;
+        [SerializeField]
+        private StageExit[] history = new StageExit[StagesCount];
         
         private void Start()
         {
-            CurrentStage = 0;
             _tunnelTypes = Enumerable.Range(0, tunnelSprites.Length).ToArray();
             Generate();
         }
 
         protected override void Generate()
         {
-            print("Start");
-            _history[CurrentStage] = StageSelector.LoadRandomStage(this);
-            CurrentStage++;
+            LoadNextStage();
+        }
+
+        public void LoadNextStage()
+        {
+            if (currentStage >= StagesCount)
+            {
+                SceneManager.LoadScene((int) SceneFlow.GetRandomBankScene());
+                return;
+            }
+            
+            history[currentStage] = StageSelector.LoadRandomStage(this);
+            currentStage++;
+        }
+
+        public void WrongTunnel()
+        {
+            Fail(true);
         }
 
         public IEnumerable<int> TunnelTypeSample(int k)
         {
-            return Utils.Sample(_tunnelTypes, k);
+            return Utils.Sample(_tunnelTypes, k < StagesCount ? k : StagesCount);
         }
 
         public Room LoadRandomRoom(int numTunnels)
@@ -47,7 +62,7 @@ namespace Scenes.OutsideSewers
 
         public StageExit GetStageExit(int stage)
         {
-            return _history[stage];
+            return history[stage];
         }
     }
 
