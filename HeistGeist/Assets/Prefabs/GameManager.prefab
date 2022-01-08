@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28373e34e113454b890b8c7eec765996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingTime: 300
+  startingTime: 720
   secondsRemaining: 0
   isRunning: 0
   expired:
