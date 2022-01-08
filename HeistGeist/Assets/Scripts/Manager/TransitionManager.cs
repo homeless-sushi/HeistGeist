@@ -18,8 +18,10 @@ namespace Manager
             transitionCanvasGroup.gameObject.SetActive(true);
         
             transitionUIText.text = _transitionText ?? "";
-            LeanTween.alphaCanvas(transitionCanvasGroup, 1f, 0);
+            LeanTween.alphaCanvas(transitionCanvasGroup, 1f, 0)
+                .setIgnoreTimeScale(true);
             LeanTween.alphaCanvas(transitionCanvasGroup, 0f, 1.5f)
+                .setIgnoreTimeScale(true)
                 .setEase(LeanTweenType.easeInOutExpo)
                 .setOnComplete(
                     () =>
@@ -38,8 +40,10 @@ namespace Manager
             transitionUIText.text = transitionText;
             _transitionText = transitionText;
         
-            LeanTween.alphaCanvas(transitionCanvasGroup, 0f, 0);
+            LeanTween.alphaCanvas(transitionCanvasGroup, 0f, 0)
+                .setIgnoreTimeScale(true);
             LeanTween.alphaCanvas(transitionCanvasGroup, 1f, 1.5f)
+                .setIgnoreTimeScale(true)
                 .setEase(LeanTweenType.easeInOutExpo)
                 .setOnComplete(onTransitionEnd);
         }
@@ -47,8 +51,10 @@ namespace Manager
         public void StartTransition(Action onTransitionEnd)
         {
             startQuitTransitionFader.gameObject.SetActive(true);
-            LeanTween.scale(startQuitTransitionFader,new Vector3(1, 1, 1), 0);
+            LeanTween.scale(startQuitTransitionFader,new Vector3(1, 1, 1), 0)
+                .setIgnoreTimeScale(true);
             LeanTween.scale(startQuitTransitionFader, Vector3.zero, 1.5f)
+                .setIgnoreTimeScale(true)
                 .setEase(LeanTweenType.easeInOutExpo)
                 .setOnComplete(
                     ()=>
@@ -61,8 +67,10 @@ namespace Manager
         public void QuitTransition(Action onTransitionEnd)
         {
             startQuitTransitionFader.gameObject.SetActive(true);
-            LeanTween.scale(startQuitTransitionFader,Vector3.zero, 0f);
+            LeanTween.scale(startQuitTransitionFader,Vector3.zero, 0f)
+                .setIgnoreTimeScale(true);
             LeanTween.scale(startQuitTransitionFader, new Vector3(1, 1, 1), 1.5f)
+                .setIgnoreTimeScale(true)
                 .setEase(LeanTweenType.easeInOutExpo)
                 .setOnComplete(
                     ()=>

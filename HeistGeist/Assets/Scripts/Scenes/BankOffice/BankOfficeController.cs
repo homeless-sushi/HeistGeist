@@ -30,8 +30,9 @@ namespace Scenes.BankOffice
 
         private void Start()
         {
-            Generate();
+            FindObjectOfType<TransitionManager>().TransitionIn();
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.GameplayTrack);
+            Generate();
         }
 
         protected override void Generate()
@@ -190,7 +191,12 @@ namespace Scenes.BankOffice
         
         public void EnterDoor()
         {
-            SceneManager.LoadScene((int) SceneFlow.GetRandomVaultScene());
+            FindObjectOfType<TransitionManager>().TransitionOut(
+                "Finally, you've reached the vault!",
+                () =>
+                {
+                    SceneManager.LoadScene((int) SceneFlow.GetRandomVaultScene());
+                });
         }
     }
 }

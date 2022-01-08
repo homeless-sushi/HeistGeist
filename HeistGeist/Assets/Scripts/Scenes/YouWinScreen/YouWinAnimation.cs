@@ -1,3 +1,4 @@
+using Manager;
 using UnityEngine;
 
 namespace Scenes.YouWinScreen
@@ -10,6 +11,7 @@ namespace Scenes.YouWinScreen
             
         void Start()
         {
+            FindObjectOfType<TransitionManager>().TransitionIn();
             scrollUpPanel.gameObject.SetActive(true);
             LeanTween.move(scrollUpPanel, new Vector3(0, -590, 0), 0);
             LeanTween.move(scrollUpPanel, new Vector3(0, 390, 0), 15f)

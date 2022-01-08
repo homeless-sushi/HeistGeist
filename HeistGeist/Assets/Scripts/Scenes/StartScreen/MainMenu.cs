@@ -8,16 +8,22 @@ namespace Scenes.StartScreen
 {
     public class MainMenu : MonoBehaviour
     {
+        private static bool _firstTimeStart = true;
         void Start()
         {
-            FindObjectOfType<TransitionManager>().StartTransition(null);
+            if (_firstTimeStart)
+                _firstTimeStart = false;
+            else
+            {
+                FindObjectOfType<TransitionManager>().StartTransition(null);
+            }
         }
         
         
         public void PlayGame()
         {
             FindObjectOfType<TransitionManager>().TransitionOut(
-                "In the sewers below...",
+                "In the sewers below the bank...",
                 () =>
                 {
                     SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());

@@ -37,17 +37,25 @@ namespace Scenes.PauseScreen
         
         public void Restart()
         {
-            GameManager.Instance.GameplayEnd();
-            GameManager.Instance.PauseManager.Resume();
-            SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
-            GameManager.Instance.GameplayStart();
+            FindObjectOfType<TransitionManager>().TransitionOut(
+                "In the sewers below the bank...",
+                () => {
+                    GameManager.Instance.PauseManager.Resume();
+                    GameManager.Instance.GameplayEnd();
+                    SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
+                    GameManager.Instance.GameplayStart();
+                });
         }
 
         public void GoToMainMenu()
         {
-            GameManager.Instance.PauseManager.Resume();
-            GameManager.Instance.GameplayEnd();
-            SceneManager.LoadScene((int) Scene.StartScreen);
+            FindObjectOfType<TransitionManager>().QuitTransition(
+                () => 
+                {
+                    GameManager.Instance.PauseManager.Resume();
+                    GameManager.Instance.GameplayEnd();
+                    SceneManager.LoadScene((int) Scene.StartScreen);
+                });
         }
 
         public void QuitGame()

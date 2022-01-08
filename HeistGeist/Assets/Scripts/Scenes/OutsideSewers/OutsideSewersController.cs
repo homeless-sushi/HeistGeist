@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +23,7 @@ namespace Scenes.OutsideSewers
         
         private void Start()
         {
+            FindObjectOfType<TransitionManager>().TransitionIn();
             _tunnelTypes = Enumerable.Range(0, tunnelSprites.Length).ToArray();
             Generate();
         }
@@ -35,7 +37,11 @@ namespace Scenes.OutsideSewers
         {
             if (currentStage >= StagesCount)
             {
-                SceneManager.LoadScene((int) SceneFlow.GetRandomBankScene());
+                FindObjectOfType<TransitionManager>().TransitionOut(
+                    "Inside the bank",
+                    () => {
+                        SceneManager.LoadScene((int) SceneFlow.GetRandomBankScene());;
+                    });
                 return;
             }
             
