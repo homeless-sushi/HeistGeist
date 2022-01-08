@@ -24,6 +24,7 @@ namespace Scenes.OutsideSewers
         private void Start()
         {
             FindObjectOfType<TransitionManager>().TransitionIn();
+            GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.GameplayTrack);
             _tunnelTypes = Enumerable.Range(0, tunnelSprites.Length).ToArray();
             Generate();
         }

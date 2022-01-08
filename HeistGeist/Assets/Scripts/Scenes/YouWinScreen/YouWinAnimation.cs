@@ -12,6 +12,8 @@ namespace Scenes.YouWinScreen
         void Start()
         {
             FindObjectOfType<TransitionManager>().TransitionIn();
+            GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.MenuTrack);
+            
             scrollUpPanel.gameObject.SetActive(true);
             LeanTween.move(scrollUpPanel, new Vector3(0, -590, 0), 0);
             LeanTween.move(scrollUpPanel, new Vector3(0, 390, 0), 15f)
