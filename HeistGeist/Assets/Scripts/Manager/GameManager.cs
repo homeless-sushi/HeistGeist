@@ -51,14 +51,16 @@ namespace Manager
             timerStrikesUI.SetTime(_timer.GetRemainingTime());
         }
         
-        public void AddStrike()
+        public bool AddStrike()
         {
             currStrikes++;
             timerStrikesUI.SetStrikes(currStrikes);
-            if (currStrikes >= maxStrikes)
-            {
+
+            var gameOver = currStrikes >= maxStrikes;
+            if (gameOver)
                 GameOver();
-            }
+
+            return gameOver;
         }
 
         public void GameplayStart()

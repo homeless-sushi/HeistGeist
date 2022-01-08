@@ -11,8 +11,8 @@ namespace Scenes
 
         public void Fail(bool restartScene)
         {
-            GameManager.Instance.AddStrike();
-            if (restartScene)
+            bool gameOver = GameManager.Instance.AddStrike();
+            if (!gameOver && restartScene)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
