@@ -59,7 +59,6 @@ namespace Manager
                 .setOnComplete(
                     ()=>
                     {
-                        startQuitTransitionFader.gameObject.SetActive(false);
                         onTransitionEnd?.Invoke();
                     });
         }
@@ -75,7 +74,6 @@ namespace Manager
                 .setOnComplete(
                     ()=>
                     {
-                        startQuitTransitionFader.gameObject.SetActive(false);
                         onTransitionEnd?.Invoke();
                     });
         }
