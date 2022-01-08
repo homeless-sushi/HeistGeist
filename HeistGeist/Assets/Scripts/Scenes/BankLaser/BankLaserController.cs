@@ -107,7 +107,8 @@ namespace Scenes.BankLaser
         
         public void EnterDoor()
         {
-            SceneManager.LoadScene((int) SceneFlow.GetRandomVaultScene());
+            GameManager.Instance.GameplayEnd();
+            SceneManager.LoadScene((int)Scene.YouWinScreen);
         }
     }
 }

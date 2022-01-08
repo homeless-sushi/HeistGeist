@@ -16,7 +16,8 @@ namespace Scenes.StartScreen
         
         public void PlayGame()
         {
-            FindObjectOfType<TransitionManager>().TransitionOut("Inside the Bank",
+            FindObjectOfType<TransitionManager>().TransitionOut(
+                "In the sewers below...",
                 () =>
                 {
                     SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
