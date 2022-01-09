@@ -135,8 +135,7 @@ namespace Scenes.BankOffice
             //Security Officer
             //Public: Most bookcases. At least a lamp. Painting of siblings.
             //Private:
-            securityOfficerOffice.officeController.ActivateNBookcases(
-                Random.Range(leastBookcases,mostBookcases+1));
+            securityOfficerOffice.officeController.ActivateNBookcases(mostBookcases);
             securityOfficerOffice.officeController.ActivateNLamps(
                 Random.Range(1,securityOfficerOffice.officeController.Lamps.Length));
 
@@ -164,7 +163,7 @@ namespace Scenes.BankOffice
             accountManagerOffice.officeController.ActivateNWindows(mostWindows);
             
             accountManagerOffice.officeController.ActivateNBookcases(
-                Random.Range(leastBookcases,mostBookcases));
+                Random.Range(leastBookcases,mostBookcases+1));
             accountManagerOffice.officeController.ActivateNLamps(
                 Random.Range(0, directorOffice.officeController.Lamps.Length+1));
             
