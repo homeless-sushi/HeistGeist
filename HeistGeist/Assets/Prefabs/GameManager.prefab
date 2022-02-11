@@ -583,9 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1427735933502648783}
-  - component: {fileID: 1427735933502648780}
-  - component: {fileID: 1427735933502648782}
-  - component: {fileID: 4856976754271381153}
+  - component: {fileID: 1649546091726640429}
   - component: {fileID: 6748186961911766340}
   - component: {fileID: 4888659462500891394}
   m_Layer: 0
@@ -610,7 +608,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1427735933502648780
+--- !u!114 &1649546091726640429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -619,42 +617,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1427735933502648781}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e71adf579e140d5beda2acc3cc50ed9, type: 3}
+  m_Script: {fileID: 11500000, guid: 713d68acfa3f4c61b5dbbfb11357b4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxStrikes: 3
-  currStrikes: 0
+  maxSeconds: 720
+  timerStrikes:
+    currStrikes: 0
+    timer:
+      remainingSeconds: 0
+      isRunning: 0
+      expired:
+        m_PersistentCalls:
+          m_Calls: []
   timerStrikesUI: {fileID: 344550882}
---- !u!114 &1427735933502648782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427735933502648781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28373e34e113454b890b8c7eec765996, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingTime: 720
-  secondsRemaining: 0
-  isRunning: 0
-  expired:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &4856976754271381153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1427735933502648781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f26dc9d4dd848699097647878ad8862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &6748186961911766340
 AudioSource:
   m_ObjectHideFlags: 0

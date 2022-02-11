@@ -37,6 +37,7 @@ namespace Scenes.BankLaser
         {
             Generate();
             FindObjectOfType<TransitionManager>().TransitionIn();
+            GameManager.Instance.GameplayRun();
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.GameplayTrack);
         }
 
@@ -110,7 +111,6 @@ namespace Scenes.BankLaser
             FindObjectOfType<TransitionManager>().TransitionOut(
                 "Congratulations!",
                 () => {
-                    GameManager.Instance.GameplayEnd();
                     SceneManager.LoadScene((int)Scene.YouWinScreen);
                 });
         }

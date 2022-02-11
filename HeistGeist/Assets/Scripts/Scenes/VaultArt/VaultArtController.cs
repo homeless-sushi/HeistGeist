@@ -36,6 +36,7 @@ namespace Scenes.VaultArt
         protected void Start()
         {   
             FindObjectOfType<TransitionManager>().TransitionIn();
+            GameManager.Instance.GameplayRun();
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.GameplayTrack);
             Generate();
         }

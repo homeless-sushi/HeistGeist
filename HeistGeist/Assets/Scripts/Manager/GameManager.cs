@@ -1,7 +1,5 @@
-using Scenes;
-using System;
+﻿using Manager.GameplayState;
 using Manager.UI;
-using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Scene = Scenes.Scene;
@@ -10,21 +8,28 @@ namespace Manager
 {
     public class GameManager : Singleton<GameManager>
     {
-        private bool _isGameplayOn = false;
-        public bool IsGameplayOn => _isGameplayOn;
-
+        public static readonly IState RunState = new Run();
+        public static readonly IState PauseState = new Pause();
+        public static readonly IState StopState = new Stop();
+        
+        private IState _currentState;
+        private IState CurrentState {
+            get => _currentState;
+            set {
+                _currentState.OnExit(this);
+                _currentState = value;
+                _currentState.OnEnter(this);
+            }
+        }
+        
         [SerializeField] private int maxStrikes;
-        [SerializeField] private int currStrikes;
-        public int MaxStrikes => maxStrikes;
-        public int CurrStrikes => currStrikes;
+        [SerializeField] private float maxSeconds;
+
+        [SerializeField] private TimerStrikes timerStrikes;
+        public TimerStrikes TimerStrikes => timerStrikes;
 
         [Header("UI")]
         [SerializeField] private TimerStrikesUI timerStrikesUI;
-
-        private Timer _timer;
-        
-        private PauseManager _pauseManager;
-        public PauseManager PauseManager => _pauseManager;
 
         private SoundManager _soundManager;
         public SoundManager SoundManager => _soundManager;
@@ -32,61 +37,66 @@ namespace Manager
         protected override void Awake()
         {
             base.Awake();
+
+            timerStrikes = new TimerStrikes();
+            timerStrikes.TimerStrikesUI = timerStrikesUI;
+            timerStrikes.TimerExpired.AddListener(GameOver);
             
-            _timer = GetComponent<Timer>();
-            _pauseManager = GetComponent<PauseManager>();
             _soundManager = GetComponent<SoundManager>();
+
+            _currentState = StopState;
         }
 
-        protected void Start()
+        public void ResetGameplay()
         {
-            _timer.expired.AddListener(GameOver);
-            
-            timerStrikesUI.SetTime(_timer.GetRemainingTime());
-            timerStrikesUI.SetStrikes(currStrikes);
+            timerStrikes.CurrStrikes = 0;
+            timerStrikes.SetRemainingSeconds(maxSeconds);
+        }
+
+        public void GameplayRun()
+        {
+            if (CurrentState.Value == RunState.Value)
+                return;
+
+            CurrentState = RunState;
+        }
+        
+        public void GameplayPause()
+        {
+            if (CurrentState.Value == PauseState.Value)
+                return;
+
+            CurrentState = PauseState;
+        }
+        
+        public void GameplayStop()
+        {
+            if (CurrentState.Value == StopState.Value)
+                return;
+
+            CurrentState = StopState;
         }
 
         private void Update()
         {
-            timerStrikesUI.SetTime(_timer.GetRemainingTime());
+            var nextState = CurrentState.Update(this);
+            if (nextState != null)
+                CurrentState = nextState;
         }
         
         public bool AddStrike()
         {
-            currStrikes++;
-            timerStrikesUI.SetStrikes(currStrikes);
-
-            var gameOver = currStrikes >= maxStrikes;
+            timerStrikes.AddStrike();
+            
+            var gameOver = timerStrikes.CurrStrikes >= maxStrikes;
             if (gameOver)
                 GameOver();
 
             return gameOver;
         }
 
-        public void GameplayStart()
-        {
-            _isGameplayOn = true;
-            
-            _timer.isRunning = true;
-            currStrikes = 0;
-            timerStrikesUI.SetStrikes(0);
-
-            timerStrikesUI.gameObject.SetActive(true);
-        }
-
-        public void GameplayEnd()
-        {
-            _isGameplayOn = false;
-            
-            _timer.isRunning = false;
-            _timer.Reset();
-            
-            timerStrikesUI.gameObject.SetActive(false);
-        }
-
         private void GameOver()
         {
-            GameplayEnd();
             SceneManager.LoadScene((int) Scene.YouLoseScreen);
         }
     }

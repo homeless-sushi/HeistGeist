@@ -32,7 +32,7 @@ namespace Scenes.PauseScreen
 
         public void Resume()
         {
-            GameManager.Instance.PauseManager.Resume();
+            GameManager.Instance.GameplayRun();
         }
         
         public void Restart()
@@ -40,10 +40,9 @@ namespace Scenes.PauseScreen
             FindObjectOfType<TransitionManager>().TransitionOut(
                 "In the sewers below the bank...",
                 () => {
-                    GameManager.Instance.PauseManager.Resume();
-                    GameManager.Instance.GameplayEnd();
+                    GameManager.Instance.ResetGameplay();
+                    GameManager.Instance.GameplayStop();
                     SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
-                    GameManager.Instance.GameplayStart();
                 });
         }
 
@@ -52,8 +51,7 @@ namespace Scenes.PauseScreen
             FindObjectOfType<TransitionManager>().QuitTransition(
                 () => 
                 {
-                    GameManager.Instance.PauseManager.Resume();
-                    GameManager.Instance.GameplayEnd();
+                    GameManager.Instance.GameplayStop();
                     SceneManager.LoadScene((int) Scene.StartScreen);
                 });
         }

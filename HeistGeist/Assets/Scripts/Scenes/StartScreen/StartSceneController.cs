@@ -7,6 +7,7 @@ namespace Scenes.StartScreen
     {
         private void Start()
         {
+            GameManager.Instance.GameplayStop();
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.MenuTrack);
         }
     }

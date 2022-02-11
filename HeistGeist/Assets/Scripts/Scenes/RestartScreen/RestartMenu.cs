@@ -12,8 +12,9 @@ namespace Scenes.RestartScreen
             FindObjectOfType<TransitionManager>().TransitionOut(null,
                 () =>
                 {
+                    GameManager.Instance.ResetGameplay();
+                    GameManager.Instance.GameplayStop();
                     SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
-                    GameManager.Instance.GameplayStart();
                 });
         }
 
@@ -22,6 +23,7 @@ namespace Scenes.RestartScreen
             FindObjectOfType<TransitionManager>().QuitTransition(
                 () => 
                 {
+                    GameManager.Instance.GameplayStop();
                     SceneManager.LoadScene((int) Scene.StartScreen); 
                 });
         }

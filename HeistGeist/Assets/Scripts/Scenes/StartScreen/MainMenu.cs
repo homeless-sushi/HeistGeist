@@ -26,8 +26,8 @@ namespace Scenes.StartScreen
                 "In the sewers below the bank...",
                 () =>
                 {
+                    GameManager.Instance.ResetGameplay();
                     SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
-                    GameManager.Instance.GameplayStart();
                 });
         }
         

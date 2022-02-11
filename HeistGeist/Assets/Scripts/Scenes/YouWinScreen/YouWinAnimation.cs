@@ -12,6 +12,7 @@ namespace Scenes.YouWinScreen
         void Start()
         {
             FindObjectOfType<TransitionManager>().TransitionIn();
+            GameManager.Instance.GameplayStop();
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.MenuTrack);
             
             scrollUpPanel.gameObject.SetActive(true);

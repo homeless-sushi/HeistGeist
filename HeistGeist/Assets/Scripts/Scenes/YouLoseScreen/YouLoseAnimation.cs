@@ -11,8 +11,9 @@ namespace Scenes.YouLoseScreen
         
         void Start()
         {
+            GameManager.Instance.GameplayStop();
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.MenuTrack);
-            
+
             youLosePanel.gameObject.SetActive(true);
             LeanTween.move(youLosePanel, new Vector3(-16, 600, 0), 0);
             LeanTween.move(youLosePanel, new Vector3(-16, 600, 0), 1f).setOnComplete(
