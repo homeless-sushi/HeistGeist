@@ -191,12 +191,24 @@ namespace Scenes.BankOffice
         
         public void EnterDoor()
         {
-            FindObjectOfType<TransitionManager>().TransitionOut(
-                "Finally, you've reached the vault!",
-                () =>
-                {
-                    SceneManager.LoadScene((int) SceneFlow.GetRandomVaultScene());
-                });
+            if (GameManager.Instance.GameModeData.CurrentGameMode == GameModeData.GameMode.Story)
+            {
+                FindObjectOfType<TransitionManager>().TransitionOut(
+                    "Finally, you've reached the vault!",
+                    () =>
+                    {
+                        SceneManager.LoadScene((int) SceneFlow.GetRandomVaultScene());
+                    });
+            }
+            else
+            {
+                FindObjectOfType<TransitionManager>().QuitTransition(
+                    () => 
+                    {
+                        GameManager.Instance.GameplayStop();
+                        SceneManager.LoadScene((int) Scene.StartScreen);
+                    });
+            }
         }
     }
 }

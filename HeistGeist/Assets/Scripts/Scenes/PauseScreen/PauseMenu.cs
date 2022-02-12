@@ -38,11 +38,11 @@ namespace Scenes.PauseScreen
         public void Restart()
         {
             FindObjectOfType<TransitionManager>().TransitionOut(
-                "In the sewers below the bank...",
+                GameManager.Instance.GameModeData.RestartText,
                 () => {
                     GameManager.Instance.ResetGameplay();
                     GameManager.Instance.GameplayStop();
-                    SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
+                    SceneManager.LoadScene((int) GameManager.Instance.GameModeData.RestartScene);
                 });
         }
 

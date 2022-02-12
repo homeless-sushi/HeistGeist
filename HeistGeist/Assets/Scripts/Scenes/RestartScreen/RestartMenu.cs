@@ -9,12 +9,12 @@ namespace Scenes.RestartScreen
     {
         public void Restart()
         {
-            FindObjectOfType<TransitionManager>().TransitionOut(null,
-                () =>
-                {
+            FindObjectOfType<TransitionManager>().TransitionOut(
+                GameManager.Instance.GameModeData.RestartText,
+                () => {
                     GameManager.Instance.ResetGameplay();
                     GameManager.Instance.GameplayStop();
-                    SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
+                    SceneManager.LoadScene((int) GameManager.Instance.GameModeData.RestartScene);
                 });
         }
 

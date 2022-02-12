@@ -39,11 +39,23 @@ namespace Scenes.OutsideSewers
         {
             if (currentStage >= StagesCount)
             {
-                FindObjectOfType<TransitionManager>().TransitionOut(
+                if (GameManager.Instance.GameModeData.CurrentGameMode == GameModeData.GameMode.Story)
+                {
+                    FindObjectOfType<TransitionManager>().TransitionOut(
                     "Inside the bank",
                     () => {
                         SceneManager.LoadScene((int) SceneFlow.GetRandomBankScene());;
                     });
+                }
+                else
+                {
+                    FindObjectOfType<TransitionManager>().QuitTransition(
+                        () => 
+                        {
+                            GameManager.Instance.GameplayStop();
+                            SceneManager.LoadScene((int) Scene.StartScreen);
+                        });
+                }
                 return;
             }
             

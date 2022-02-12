@@ -8,6 +8,17 @@ namespace Manager
 {
     public class GameManager : Singleton<GameManager>
     {
+        private GameModeData _gameModeData;
+        public GameModeData GameModeData
+        {
+            get => _gameModeData;
+            set
+            {
+                _gameModeData = value;
+                ResetGameplay();
+            }
+        }
+        
         public static readonly IState RunState = new Run();
         public static readonly IState PauseState = new Pause();
         public static readonly IState StopState = new Stop();
@@ -23,7 +34,6 @@ namespace Manager
         }
         
         [SerializeField] private int maxStrikes;
-        [SerializeField] private float maxSeconds;
 
         [SerializeField] private TimerStrikes timerStrikes;
         public TimerStrikes TimerStrikes => timerStrikes;
@@ -33,7 +43,7 @@ namespace Manager
 
         private SoundManager _soundManager;
         public SoundManager SoundManager => _soundManager;
-        
+
         protected override void Awake()
         {
             base.Awake();
@@ -41,16 +51,18 @@ namespace Manager
             timerStrikes = new TimerStrikes();
             timerStrikes.TimerStrikesUI = timerStrikesUI;
             timerStrikes.TimerExpired.AddListener(GameOver);
-            
-            _soundManager = GetComponent<SoundManager>();
 
+            _soundManager = GetComponent<SoundManager>();
+                
+            GameModeData = new GameModeData(GameModeData.GameMode.Practice);
+            
             _currentState = StopState;
         }
 
         public void ResetGameplay()
         {
             timerStrikes.CurrStrikes = 0;
-            timerStrikes.SetRemainingSeconds(maxSeconds);
+            timerStrikes.SetRemainingSeconds(GameModeData.MaxSeconds);
         }
 
         public void GameplayRun()

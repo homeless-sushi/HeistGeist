@@ -22,12 +22,16 @@ namespace Scenes.StartScreen
         
         public void PlayGame()
         {
+            GameManager.Instance.GameModeData = new GameModeData(GameModeData.GameMode.Story);
+            GameManager.Instance.GameModeData.RestartText = "In the sewers below the bank...";
+            GameManager.Instance.GameModeData.RestartScene = SceneFlow.GetRandomOutsideScene();
+            
             FindObjectOfType<TransitionManager>().TransitionOut(
-                "In the sewers below the bank...",
+                GameManager.Instance.GameModeData.RestartText,
                 () =>
                 {
                     GameManager.Instance.ResetGameplay();
-                    SceneManager.LoadScene((int) SceneFlow.GetRandomOutsideScene());
+                    SceneManager.LoadScene((int) GameManager.Instance.GameModeData.RestartScene);
                 });
         }
         

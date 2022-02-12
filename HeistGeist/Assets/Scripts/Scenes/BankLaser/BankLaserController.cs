@@ -108,11 +108,21 @@ namespace Scenes.BankLaser
         
         public void EnterDoor()
         {
-            FindObjectOfType<TransitionManager>().TransitionOut(
-                "Congratulations!",
-                () => {
-                    SceneManager.LoadScene((int)Scene.YouWinScreen);
-                });
+            if (GameManager.Instance.GameModeData.CurrentGameMode == GameModeData.GameMode.Story)
+            {
+                FindObjectOfType<TransitionManager>().TransitionOut(
+                    "Congratulations!",
+                    () => { SceneManager.LoadScene((int) Scene.YouWinScreen); });
+            }
+            else
+            {
+                FindObjectOfType<TransitionManager>().QuitTransition(
+                    () => 
+                    {
+                        GameManager.Instance.GameplayStop();
+                        SceneManager.LoadScene((int) Scene.StartScreen);
+                    });
+            }
         }
     }
 }
