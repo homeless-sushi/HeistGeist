@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/YouWinScreen.unity
     guid: 213f5f88aa8e94b598d208d8411b5a35
+  - enabled: 1
+    path: Assets/Scenes/StreetScene.unity
+    guid: 3e36ea70928c3a54695beb7bedf8e6ba
   m_configObjects: {}

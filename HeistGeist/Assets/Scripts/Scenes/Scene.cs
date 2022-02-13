@@ -12,7 +12,8 @@ namespace Scenes
         BankOffice = 5,
         OutsideSewers = 6,
         YouLoseScreen = 7,
-        YouWinScreen = 8
+        YouWinScreen = 8,
+        OutsideStreet = 9
     }
 
     public class SceneFlow
