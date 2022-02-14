@@ -23,8 +23,8 @@ namespace Scenes.StartScreen
         public void PlayGame()
         {
             GameManager.Instance.GameModeData = new GameModeData(GameModeData.GameMode.Story);
-            GameManager.Instance.GameModeData.RestartText = "In the sewers below the bank...";
-            GameManager.Instance.GameModeData.RestartScene = SceneFlow.GetRandomOutsideScene();
+            GameManager.Instance.GameModeData.RestartText = "The night of the heist";
+            GameManager.Instance.GameModeData.RestartScene = Scene.OutsideStreet;
             
             FindObjectOfType<TransitionManager>().TransitionOut(
                 GameManager.Instance.GameModeData.RestartText,
