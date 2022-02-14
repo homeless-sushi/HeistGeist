@@ -6,7 +6,12 @@ namespace Scenes.OutsideStreet.UI
     public class Keyhole : MonoBehaviour
     {
         [SerializeField] private int correctKeyNumber;
-        public int CorrectKeyNumber => correctKeyNumber;
+
+        public int CorrectKeyNumber
+        {
+            set => correctKeyNumber = value;
+            get => correctKeyNumber;
+        }
 
         [SerializeField] private UnityEvent<bool> answer; 
         
