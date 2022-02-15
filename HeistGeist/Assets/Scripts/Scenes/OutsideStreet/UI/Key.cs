@@ -34,12 +34,19 @@ namespace Scenes.OutsideStreet.UI
             worldPosition.y = worldPosition.y/uiCamera.orthographicSize * height * 0.5f;
             worldPosition.z = 0f;
             gameObject.GetComponent<Transform>().localPosition = worldPosition;
+            
         }
 
         public void ChangeKeyStatus()
         {
             _isHeld = !_isHeld;
             Cursor.visible = !_isHeld;
+        }
+
+        void OnDisable()
+        {
+            _isHeld = false;
+            Cursor.visible = true;
         }
     }
 }
