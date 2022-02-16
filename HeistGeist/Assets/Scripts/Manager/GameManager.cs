@@ -100,6 +100,8 @@ namespace Manager
         {
             timerStrikes.AddStrike();
             
+            SoundManager.PlayFX(SoundManager.Fx.Strike);
+            
             var gameOver = timerStrikes.CurrStrikes >= maxStrikes;
             if (gameOver)
                 GameOver();

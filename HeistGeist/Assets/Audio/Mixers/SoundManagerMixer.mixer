@@ -45,6 +45,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 1
   m_ExposedParameters:
+  - guid: ac5877c505166884e97ec1500f38c89f
+    name: FxVolume
   - guid: c619842909ae8944dac0884bd8203879
     name: MasterVolume
   - guid: 2359b435235a10e4f998cce02c9c8c06

@@ -9,22 +9,30 @@ namespace Manager
     {
         private void Awake()
         {
-            if (PlayerPrefs.HasKey("MasterVolume"))
+            const string masterVolumeParam = "MasterVolume";
+            if(PlayerPrefs.HasKey(masterVolumeParam))
             {
-                SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume"));
+                SetVolume(masterVolumeParam,PlayerPrefs.GetFloat(masterVolumeParam));
+            }
+            
+            const string musicVolumeParam = "MusicVolume";
+            if(PlayerPrefs.HasKey(musicVolumeParam))
+            {
+                SetVolume(musicVolumeParam,PlayerPrefs.GetFloat(musicVolumeParam));
+            }
+            
+            const string fxVolumeParam = "FxVolume";
+            if(PlayerPrefs.HasKey(fxVolumeParam))
+            {
+                SetVolume(fxVolumeParam,PlayerPrefs.GetFloat(fxVolumeParam));
             }
         }
 
         [SerializeField] private AudioMixer masterMixer;
 
-        public void SetMasterVolume(float linearVolume)
+        public void SetVolume(String paramName, float linearVolume)
         {
-            masterMixer.SetFloat("MasterVolume", ToDB(linearVolume));
-        }
-        
-        public void SetMusicVolume(float linearVolume)
-        {
-            masterMixer.SetFloat("MusicVolume", ToDB(linearVolume));
+            masterMixer.SetFloat(paramName, ToDB(linearVolume));
         }
 
         public void SetPauseScreenEffects(bool on)
@@ -55,6 +63,20 @@ namespace Manager
 
             musicSource.clip = trackList[(int) track];
             musicSource.Play();
+        }
+        
+        [Header("FX")]
+        [SerializeField] private AudioSource fxSource;
+        public enum Fx
+        {
+            Strike,
+        }
+        [SerializeField] private AudioClip[] fxList;
+        
+        public void PlayFX(Fx fx)
+        {
+            fxSource.clip = fxList[(int) fx];
+            fxSource.Play();
         }
 
         private static float ToDB(float linear)
