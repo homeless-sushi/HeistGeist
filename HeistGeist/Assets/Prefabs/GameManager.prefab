@@ -842,6 +842,7 @@ MonoBehaviour:
   fxSource: {fileID: 6281012064119875460}
   fxList:
   - {fileID: 8300000, guid: c5f13da6e1e3a6d49be25c14c0584fd7, type: 3}
+  - {fileID: 8300000, guid: 1b47b990365a2a94aa468ed69335cdf2, type: 3}
 --- !u!1 &3850242254831416126
 GameObject:
   m_ObjectHideFlags: 0

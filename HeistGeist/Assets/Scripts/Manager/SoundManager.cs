@@ -70,6 +70,7 @@ namespace Manager
         public enum Fx
         {
             Strike,
+            PuzzleSolved,
         }
         [SerializeField] private AudioClip[] fxList;
         

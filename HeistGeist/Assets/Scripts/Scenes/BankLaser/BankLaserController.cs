@@ -108,6 +108,7 @@ namespace Scenes.BankLaser
         
         public void EnterDoor()
         {
+            GameManager.Instance.SoundManager.PlayFX(SoundManager.Fx.PuzzleSolved);
             if (GameManager.Instance.GameModeData.CurrentGameMode == GameModeData.GameMode.Story)
             {
                 FindObjectOfType<TransitionManager>().TransitionOut(

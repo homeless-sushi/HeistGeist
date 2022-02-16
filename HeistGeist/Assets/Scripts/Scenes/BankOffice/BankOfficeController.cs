@@ -180,6 +180,7 @@ namespace Scenes.BankOffice
                 _correctAnswersCounter++;
                 if (_correctAnswersCounter == 4)
                 {
+                    GameManager.Instance.SoundManager.PlayFX(SoundManager.Fx.PuzzleSolved);
                     exitDoor.Open();
                 }
             }

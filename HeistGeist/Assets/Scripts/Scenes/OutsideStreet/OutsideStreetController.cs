@@ -59,6 +59,7 @@ namespace Scenes.OutsideStreet
         {
             if (correct)
             {
+                GameManager.Instance.SoundManager.PlayFX(SoundManager.Fx.PuzzleSolved);
                 manhole.Open();
                 
                 uIInspectManhole.gameObject.SetActive(false);

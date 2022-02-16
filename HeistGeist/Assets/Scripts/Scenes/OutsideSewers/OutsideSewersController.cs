@@ -37,6 +37,9 @@ namespace Scenes.OutsideSewers
 
         public void LoadNextStage()
         {
+            if(currentStage != 0)
+                GameManager.Instance.SoundManager.PlayFX(SoundManager.Fx.PuzzleSolved);
+            
             if (currentStage >= StagesCount)
             {
                 if (GameManager.Instance.GameModeData.CurrentGameMode == GameModeData.GameMode.Story)
