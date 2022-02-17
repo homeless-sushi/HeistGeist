@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -65,12 +66,27 @@ namespace Manager
             musicSource.Play();
         }
         
+        public IEnumerator FadeInMusic (float fadeTime) {
+            float endVolume = musicSource.volume;
+        
+            musicSource.volume = Single.Epsilon;
+            while (musicSource.volume < endVolume) {
+                musicSource.volume += endVolume * Time.unscaledDeltaTime / fadeTime;
+ 
+                yield return null;
+            }
+ 
+            musicSource.volume = endVolume;
+        }
+        
         [Header("FX")]
         [SerializeField] private AudioSource fxSource;
         public enum Fx
         {
             Strike,
             PuzzleSolved,
+            GameOver,
+            GameWon,
         }
         [SerializeField] private AudioClip[] fxList;
         

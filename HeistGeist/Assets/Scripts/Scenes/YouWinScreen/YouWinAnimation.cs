@@ -13,7 +13,10 @@ namespace Scenes.YouWinScreen
         {
             FindObjectOfType<TransitionManager>().TransitionIn();
             GameManager.Instance.GameplayStop();
+            GameManager.Instance.SoundManager.PlayFX(SoundManager.Fx.GameWon);
+            
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.MenuTrack);
+            StartCoroutine(GameManager.Instance.SoundManager.FadeInMusic(8f));
             
             scrollUpPanel.gameObject.SetActive(true);
             LeanTween.move(scrollUpPanel, new Vector3(0, -590, 0), 0);

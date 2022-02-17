@@ -13,7 +13,10 @@ namespace Scenes.YouLoseScreen
         {
             FindObjectOfType<TransitionManager>().TransitionIn();
             GameManager.Instance.GameplayStop();
+            GameManager.Instance.SoundManager.PlayFX(SoundManager.Fx.GameOver);
+            
             GameManager.Instance.SoundManager.PlayTrack(SoundManager.Track.MenuTrack);
+            StartCoroutine(GameManager.Instance.SoundManager.FadeInMusic(8f));
 
             youLosePanel.gameObject.SetActive(true);
             LeanTween.move(youLosePanel, new Vector3(-16, 600, 0), 0);
