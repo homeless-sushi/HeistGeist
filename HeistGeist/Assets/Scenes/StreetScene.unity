@@ -7154,7 +7154,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
       propertyPath: lowerBounds.x
-      value: -13
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
       propertyPath: lowerBounds.y
@@ -7162,11 +7162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
       propertyPath: upperBounds.x
-      value: 13
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
       propertyPath: upperBounds.y
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 469795972481933641, guid: b7eb2f9cda6554225aa7bf7bc6860eb4, type: 3}
       propertyPath: targetTransform
