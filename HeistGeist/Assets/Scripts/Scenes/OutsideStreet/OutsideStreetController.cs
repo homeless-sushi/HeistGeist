@@ -19,6 +19,7 @@ namespace Scenes.OutsideStreet
         [Space(20)] 
         [Header("Disable on correct answer")] 
         [SerializeField] private Interactable interactable;
+        [SerializeField] private GameObject manholeWalls;
         [SerializeField] private UIInspectManhole uIInspectManhole;
 
         private void Start()
@@ -73,6 +74,7 @@ namespace Scenes.OutsideStreet
         
         public void EnterDoor()
         {
+            manholeWalls.SetActive(true);
             if (GameManager.Instance.GameModeData.CurrentGameMode == GameModeData.GameMode.Story)
             {
                 FindObjectOfType<TransitionManager>().TransitionOut(
