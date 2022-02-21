@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae9019ba63b31640bfd98dd8385d664, type: 3}
+  m_Name: D04
+  m_EditorClassIdentifier: 
+  painting: {fileID: 21300000, guid: 3e8271c3ba076c34db537d62f421b7b4, type: 3}
+  uIPainting: {fileID: 21300000, guid: 65558f680416e4a40b9d849c6f53448e, type: 3}
+  frameData: {fileID: 11400000, guid: db23bda296264694e85bdf95f547e618, type: 2}
