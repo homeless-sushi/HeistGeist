@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - TransitionImage
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Floor
+  - Blocking
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 2740260703
+    locked: 0
+  - name: Wall
+    uniqueID: 4160869961
+    locked: 0
+  - name: WallDecoration
+    uniqueID: 1248473361
+    locked: 0
+  - name: Blocking
+    uniqueID: 413327577
+    locked: 0
+  - name: FourthWall
+    uniqueID: 1897719685
+    locked: 0
+  - name: Floating
+    uniqueID: 3694965627
+    locked: 0

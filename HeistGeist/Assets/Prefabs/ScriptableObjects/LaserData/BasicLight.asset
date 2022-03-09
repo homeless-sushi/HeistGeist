@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2942f5df67ff43a1a554e3b8d19578d9, type: 3}
+  m_Name: BasicLight
+  m_EditorClassIdentifier: 
+  lightOff: {fileID: 905024258411163469, guid: c8350795b4f5a634abc3b95bf5e3d9ef, type: 3}
+  lightOn: {fileID: -3603349178357385325, guid: c8350795b4f5a634abc3b95bf5e3d9ef, type: 3}
